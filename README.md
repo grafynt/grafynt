@@ -106,7 +106,13 @@ A vertical offer page is a **skin, not a fork**. No component is duplicated and 
 
 **Motion budget.** One page entrance under 600ms. Exactly one scroll reveal on the whole site, on `Ladder`, done with a CSS `view()` timeline behind two guards. The hero thread is the one named exception, at a 3.55s ceiling. CSS transitions and transforms only — no animation library, ever. Everything renders complete under `prefers-reduced-motion` and with JavaScript disabled.
 
-**Static everywhere.** No `"use client"` anywhere in this repo. If a component seems to need client JS, the design is wrong.
+**Static everywhere. No client JS of our own.** There is no `"use client"` anywhere in this repo and there should never be one. If a component seems to need client JS, the design is wrong — the answer is a different design, not a directive.
+
+The only exception is the ~700-byte inline script that stages the hero thread, in [`src/components/whatsapp-thread.tsx`](src/components/whatsapp-thread.tsx). It adds no content and the page is complete without it.
+
+For the record, since the original brief set a hard budget of 80kb gzipped: the site ships **133.6kb gzipped** on a first load, and none of it is ours. That is the React 19 + Next.js App Router client runtime — hydration and the router — which loads whether or not anything uses it. (A further 38.5kb `noModule` polyfill bundle exists but no modern browser downloads it.) Closing a 53kb gap would mean leaving App Router entirely, and the trade was judged not worth it, because every page renders complete with JavaScript disabled: the bytes carry hydration and prefetching, not content and not LCP.
+
+So the rule this repo actually holds itself to is **zero client JS of our own**, verified by the absence of `"use client"`. If you ever find yourself adding one, that is the line being crossed — not the byte count.
 
 **Do not `Disallow: /v/` in robots.txt.** Those pages carry a `noindex` meta tag. A robots disallow would stop crawlers reading that tag, which is exactly how a noindexed URL ends up indexed anyway. [`src/app/robots.ts`](src/app/robots.ts) deliberately says nothing about `/v/`.
 
