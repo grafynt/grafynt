@@ -1,0 +1,71 @@
+/* ============================================================
+   VERTICAL SKINS
+
+   A skin re-binds the --gf-* contract from globals.css and
+   nothing else. No component is forked, no component reads a
+   hex value, no component takes a `variant` prop.
+
+   Applied by a wrapper element, not by <html>:
+       <div data-skin="klinik"> ... </div>
+   Custom properties are resolved per element, so a nested
+   wrapper re-skins its whole subtree regardless of source
+   order or specificity.
+
+   Skin routes live under /v/[vertical] and are noindex.
+
+   TO ADD A SKIN
+     1. add a [data-skin="name"] block below
+     2. load its faces with next/font inside that route's
+        layout only, so the public bundle never carries them
+     3. create src/app/v/name/page.tsx
+   ============================================================ */
+
+/* --- klinik kecantikan ------------------------------------
+   Porcelain / wine / champagne. Fraunces + Hanken Grotesk +
+   Space Mono. Deliberately soft geometry: 18px cards, pill
+   buttons. Faces are loaded in src/app/v/[vertical]/layout.tsx.
+   ---------------------------------------------------------- */
+
+[data-skin="klinik"] {
+  --gf-surface: #f8f2ef; /* porcelain */
+  --gf-surface-2: #f1e7e1; /* porcelain-2 */
+  --gf-text: #2b1620; /* ink */
+  --gf-text-soft: #856972; /* muted */
+  --gf-text-faint: #856972;
+  --gf-text-on-dark: #f8f2ef;
+
+  --gf-accent: #7a2e4a; /* wine */
+  --gf-accent-wash: #ead0c8; /* blush */
+
+  --gf-rule: #e4c6bd; /* blush-line */
+  --gf-decor: #b4884a; /* champagne */
+
+  --gf-chat-bg: #ece3dd;
+  --gf-chat-in: #ffffff;
+  --gf-chat-out: #ddf2c6;
+  --gf-chat-head: #0f6b45;
+  --gf-chat-shell: #160910;
+
+  --gf-font-display: var(--font-fraunces), Georgia, serif;
+  --gf-font-body: var(--font-hanken-grotesk), system-ui, sans-serif;
+  --gf-font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --gf-radius: 18px;
+  --gf-radius-btn: 100px;
+  --gf-section-y: 6rem;
+  --gf-maxw: 1140px;
+
+  /* Fraunces runs larger on the page than Instrument Serif at
+     the same size; the display steps come down a little so the
+     structural rhythm reads the same. */
+  --gf-t-display-xl: clamp(2.5rem, 5.4vw, 4.4rem);
+  --gf-t-display-l: clamp(1.9rem, 3.4vw, 2.9rem);
+  --gf-t-body: 1.0625rem;
+}
+
+/* The one deep section per page (closing CTA, and the klinik
+   page's feature band + footer). House default is ink; see
+   globals.css. */
+[data-skin="klinik"] {
+  --gf-deep: #331823; /* plum */
+}

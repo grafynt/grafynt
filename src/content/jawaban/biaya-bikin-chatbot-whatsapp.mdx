@@ -1,0 +1,83 @@
+export const meta = {
+  question: "Berapa biaya bikin chatbot WhatsApp untuk bisnis?",
+  title: "Berapa biaya bikin chatbot WhatsApp untuk bisnis",
+  description:
+    "Rincian biaya bikin agen WhatsApp: harga build, biaya jalan yang jarang disebut vendor, dan cara menilai apakah bisnis Anda sudah butuh atau belum.",
+  lead: "Di Grafynt, satu build otomatisasi WhatsApp harganya Rp 5.300.000 sekali bayar dan selesai dalam satu sampai dua minggu. Angka itu mencakup agen yang tersambung ke nomor Anda, dilatih dengan harga dan layanan Anda, plus aturan eskalasi. Biaya percakapan dari Meta ditagih terpisah langsung ke Anda.",
+  published: "2026-08-05",
+  updated: "2026-08-05",
+  faqs: [
+    {
+      question: "Apakah Rp 5.300.000 sudah termasuk semuanya?",
+      answer:
+        "Itu sudah seluruh biaya pengerjaannya, sekali bayar. Yang di luar angka itu hanya biaya yang ditagih pihak ketiga langsung ke Anda: biaya percakapan WhatsApp dari Meta, dan langganan tools yang memang sudah Anda bayar sendiri. Kami tidak menjual ulang keduanya.",
+    },
+    {
+      question: "Kenapa vendor lain bisa jauh lebih murah?",
+      answer:
+        "Biasanya karena dua hal: memakai gateway tidak resmi yang berisiko membuat nomor Anda diblokir, atau menjual template chatbot berbasis menu yang sama untuk semua klien. Keduanya sah-sah saja ditawarkan, asal Anda tahu mana yang sedang dibeli.",
+    },
+    {
+      question: "Ada biaya bulanan ke Grafynt?",
+      answer:
+        "Tidak untuk build. Rp 5.300.000 sekali bayar, lalu workflow-nya milik Anda. Yang berjalan bulanan hanya biaya percakapan Meta dan langganan tools Anda sendiri, keduanya ditagih langsung ke akun Anda tanpa margin kami.",
+    },
+    {
+      question: "Kalau nanti harga atau layanan saya berubah?",
+      answer:
+        "Perubahan kecil seperti menambah layanan, mengubah harga, atau mengganti kalimat balasan bisa Anda edit sendiri. Perubahan struktur, misalnya menambah alur pembayaran atau cabang kedua, adalah pekerjaan baru dan dihitung sebagai pekerjaan baru.",
+    },
+  ],
+};
+
+## Ringkasnya
+
+- Build otomatisasi WhatsApp di Grafynt: Rp 5.300.000 sekali bayar, selesai 1–2 minggu.
+- Harga itu mencakup agen di nomor Anda, dilatih dengan harga dan layanan Anda, plus aturan booking dan eskalasi.
+- Yang di luar harga: biaya percakapan dari Meta dan langganan tools yang sudah Anda pakai. Keduanya ditagih langsung ke Anda.
+- Audit sebelum build gratis, sekitar 3 hari, dan bisa jadi hasilnya menyarankan Anda belum perlu build sama sekali.
+- Tawaran yang jauh lebih murah biasanya template berbasis menu atau gateway tidak resmi. Bukan barang yang sama.
+
+## Biaya apa saja yang sebenarnya ada
+
+Ada tiga lapis biaya di proyek seperti ini, dan vendor yang menggabungkannya jadi satu angka bulanan sedang menyembunyikan salah satunya.
+
+**Biaya pengerjaan.** Sekali bayar. Ini pekerjaan menerjemahkan cara bisnis Anda berjalan menjadi aturan yang bisa dijalankan mesin: layanan apa saja, harganya berapa, siapa yang boleh dijawab langsung, kapan harus dioper ke staf, bagaimana kalimatnya, dan integrasi ke kalender atau spreadsheet Anda.
+
+**Biaya percakapan.** Meta menagih WhatsApp Business API per percakapan, langsung ke akun Anda sendiri. Besarnya mengikuti volume chat Anda, bukan angka tetap. Karena ditagih langsung, Anda melihat angka aslinya.
+
+**Biaya tools.** Kalender, spreadsheet, sistem kasir, akuntansi, platform otomatisasi. Kalau Anda sudah membayarnya, tidak ada tambahan. Kalau belum, itu langganan Anda sendiri dan tetap milik Anda.
+
+Yang tidak seharusnya ada: biaya bulanan ke agensi hanya supaya agen Anda tetap menyala. Setelah build selesai, workflow-nya milik Anda.
+
+## Biayanya
+
+| Apa | Harga | Waktu |
+| --- | --- | --- |
+| Audit GEO/AEO + WhatsApp | Gratis | ~3 hari |
+| Build otomatisasi | Rp 5.300.000 sekali bayar | 1–2 minggu |
+| Website, GEO/AEO-native | mulai Rp 8.000.000 | 2–3 minggu |
+
+Audit gratisnya berisi tiga temuan dan satu tes. Apakah ChatGPT, Gemini, Perplexity, dan Google AI Overviews menyebut nama bisnis Anda untuk pertanyaan dengan niat beli. Kalau disebut, apakah keterangan mereka tentang Anda benar. Dan bisnis mana yang justru disebut sebagai gantinya, lengkap dengan namanya. Ditambah tes kecepatan balasan: kami mengirim pesan ke WhatsApp Anda di jam kerja, malam hari, dan hari Minggu, lalu mencatat berapa lama balasan pertama datang. Sekitar 3 hari, tanpa biaya, tanpa penawaran.
+
+## Kenapa harga di pasaran bisa jauh berbeda
+
+| | Chatbot menu | Agen AI, gateway tidak resmi | Agen AI, API resmi |
+| --- | --- | --- | --- |
+| Cara kerja | Pelanggan menekan pilihan 1, 2, 3 | Menjawab bebas, nomor tidak terdaftar | Menjawab bebas, nomor terdaftar di Meta |
+| Bahasa campur | Tidak | Ya | Ya |
+| Risiko nomor diblokir | Tergantung platformnya | Nyata dan sulit diprediksi | Rendah |
+| Biaya percakapan | Ada atau tidak, tergantung platform | Hampir tidak ada | Ditagih Meta per percakapan |
+| Kalau bermasalah | Support platform | Berhenti jalan sendiri | Ada dokumentasi dan support |
+
+Chatbot menu masih masuk akal untuk pertanyaan yang benar-benar sedikit dan tetap. Yang perlu Anda hindari adalah membayar harga agen AI lalu menerima chatbot menu, atau membayar murah tanpa tahu bahwa nomor utama bisnis Anda sedang dipertaruhkan.
+
+## Kapan sebaiknya tidak usah dulu
+
+Jangan keluarkan Rp 5.300.000 kalau chat masuk Anda masih sedikit dan satu orang menanganinya dengan santai di jam kerja. Otomatisasi menukar pekerjaan berulang menjadi biaya sekali bayar. Tanpa pengulangan, tidak ada yang ditukar.
+
+Jangan dulu kalau harga dan layanan Anda masih sering berubah. Agen hanya seakurat informasi yang Anda berikan, dan memperbaruinya tiap dua minggu memakan lebih banyak perhatian daripada membalas chat sendiri.
+
+Jangan dulu kalau bisnis Anda hidup dari negosiasi. Kalau tiap pesanan harganya dibicarakan satu per satu, yang Anda beli hanya mesin operan ke staf, dan itu terlalu kecil untuk harganya.
+
+Jangan dulu kalau inbox Anda memang sepi. Balasan lebih cepat tidak menciptakan permintaan. Ambil audit gratisnya dulu untuk memastikan masalah Anda ada di ditemukan, bukan di dibalas.
