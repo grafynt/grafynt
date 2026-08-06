@@ -7,8 +7,8 @@ import { Eyebrow } from "@/components/eyebrow";
  *
  * The heading LEVEL is a prop and the heading SIZE is a separate prop,
  * on purpose. A section that has to sit under an h2 still wants to look
- * like a section opener, and the alternative — picking the level to get
- * the size — is how heading order gets broken by a layout decision.
+ * like a section opener, and the alternative, picking the level to get
+ * the size, is how heading order gets broken by a layout decision.
  */
 export function SectionHead({
   eyebrow,

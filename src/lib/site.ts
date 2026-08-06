@@ -49,7 +49,7 @@ export const CTA = {
 /**
  * /v/* verticals only. Buyers arrive in WhatsApp and convert there;
  * routing them to a calendar adds friction at the warmest moment.
- * Prefill stays vertical-neutral — this string must never name an
+ * Prefill stays vertical-neutral, this string must never name an
  * industry, because the same constant is read by every skin.
  */
 const WA_NUMBER = "6281319190388";
@@ -84,7 +84,7 @@ export const LADDER: readonly Rung[] = [
     name: "GEO/AEO + WhatsApp audit",
     price: "Free",
     timeline: "~3 days",
-    role: "Wedge — earns the discovery call",
+    role: "Wedge, earns the discovery call",
     sold: true,
   },
   {
@@ -94,7 +94,7 @@ export const LADDER: readonly Rung[] = [
     priceNote:
       "Moves on page count, whether content needs writing, and rebuild vs new.",
     timeline: "2–3 weeks",
-    role: "Cashflow — never the front door",
+    role: "Cashflow, never the front door",
     sold: true,
   },
   {
@@ -103,7 +103,7 @@ export const LADDER: readonly Rung[] = [
     price: "Rp 5.300.000",
     priceNote: "one-time",
     timeline: "1–2 weeks",
-    role: "Land — creates the integration surface",
+    role: "Land, creates the integration surface",
     sold: true,
   },
   {
@@ -119,11 +119,11 @@ export const LADDER: readonly Rung[] = [
 /**
  * Catalyst is priced differently by audience, on purpose.
  *
- *  public site  — named and described, never priced, no purchase path.
+ *  public site , named and described, never priced, no purchase path.
  *                 It is still being built; quoting a subscription for
  *                 unshipped software is the one thing on this site
  *                 that could cost a client.
- *  /v/* offers  — priced. Those pages are noindexed and sent one to
+ *  /v/* offers , priced. Those pages are noindexed and sent one to
  *                 one after an audit, so the number lands inside a
  *                 live conversation where timing can be explained.
  */
@@ -169,13 +169,13 @@ export const AUDIT = {
   ],
   test: {
     title: "Response-speed test",
-    body: "We message your WhatsApp at three times — business hours, evening, and Sunday — and log time to first reply.",
+    body: "We message your WhatsApp at three times, business hours, evening, and Sunday, and log time to first reply.",
   },
 } as const;
 
 /**
  * The same audit in Bahasa. A parallel object rather than a
- * translation layer — there are exactly two of these and each is read
+ * translation layer, there are exactly two of these and each is read
  * by two pages. Pass it explicitly on /id/* routes; the English one
  * rendering verbatim on a Bahasa page is the failure this prevents.
  */
@@ -198,7 +198,7 @@ export const AUDIT_ID = {
   ],
   test: {
     title: "Tes kecepatan balas",
-    body: "Kami kirim pesan ke WhatsApp Anda di tiga waktu berbeda — jam kerja, malam, dan hari Minggu — lalu catat berapa lama baru dibalas.",
+    body: "Kami kirim pesan ke WhatsApp Anda di tiga waktu berbeda, jam kerja, malam, dan hari Minggu, lalu catat berapa lama baru dibalas.",
   },
 } as const;
 
@@ -240,7 +240,7 @@ export function assertRootEight(rungs: readonly Rung[] = LADDER): void {
 assertRootEight();
 assertRootEight([
   {
-    n: "—",
+    n: ",",
     name: "Catalyst (vertical offer pages)",
     price: CATALYST.verticalPrice,
     timeline: null,
@@ -268,7 +268,7 @@ export const NAV_ID = [
 
 /**
  * EN/ID pairs. Drives hreflang. A route only appears here when a real
- * equivalent exists — the language split is deliberate, not a mirror,
+ * equivalent exists, the language split is deliberate, not a mirror,
  * and pointing hreflang at a page that does not exist is worse than
  * omitting it.
  */
@@ -281,7 +281,7 @@ export const HREFLANG_PAIRS: ReadonlyArray<{ en: string; id: string }> = [
   },
   // NOT paired: /answers/cost-to-automate-order-processing and
   // /id/jawaban/biaya-bikin-chatbot-whatsapp are related but not
-  // equivalent — one is order processing, the other is what a WhatsApp
+  // equivalent, one is order processing, the other is what a WhatsApp
   // chatbot costs. hreflang between near-misses is worse than none, and
   // the Bahasa page is deliberately single-language: "biaya bikin
   // chatbot WhatsApp" is local buying language with no English query

@@ -16,7 +16,7 @@ import { Fragment, type ReactNode } from "react";
  *     bundle both get the whole conversation.
  *
  *  2. ZERO LAYOUT SHIFT. Every bubble occupies its final space from
- *     first paint — staging animates opacity and 6px of transform,
+ *     first paint, staging animates opacity and 6px of transform,
  *     nothing else. The typing indicator is absolutely positioned
  *     inside its bubble's slot, so it costs no height when it appears
  *     or disappears. Nothing is appended to the DOM, ever.
@@ -27,7 +27,7 @@ import { Fragment, type ReactNode } from "react";
  *     you get.
  *
  * The script is inlined immediately after the markup so it runs during
- * parse, before first paint — otherwise the complete thread would flash
+ * parse, before first paint, otherwise the complete thread would flash
  * before hiding itself.
  *
  * Skin-agnostic: colours come from --gf-chat-* so a vertical skin
@@ -164,7 +164,7 @@ export function WhatsAppThread({
 
 /**
  * Runs during parse, before first paint. Adds data-staged, which is the
- * only thing that hides anything — so if this never runs, the thread is
+ * only thing that hides anything, so if this never runs, the thread is
  * simply complete.
  */
 function stagingScript(id: string): string {

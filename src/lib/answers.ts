@@ -4,7 +4,7 @@ import type { Faq } from "@/lib/seo";
 /**
  * ANSWER PAGE CONTRACT
  *
- * One question per page. The shape below is not a suggestion — the
+ * One question per page. The shape below is not a suggestion, the
  * validator at the bottom of this file fails the build when it is not
  * met, because the template is what earns the citation.
  *
@@ -26,7 +26,7 @@ export type AnswerMeta = {
   lead: string;
   /** ISO date. */
   published: string;
-  /** ISO date. Freshness is a ranking input — bump it on every edit. */
+  /** ISO date. Freshness is a ranking input, bump it on every edit. */
   updated: string;
   /** 3–5 pairs. Mirrors the "Common questions" section, which must
    *  also be visible in the DOM. Carries FAQPage schema. */
@@ -50,7 +50,7 @@ type AnswerModule = { default: ComponentType; meta?: AnswerMeta };
  *
  * Adding an answer page is two edits: write the .mdx file, then add
  * one line here. Explicit imports rather than a directory scan, on
- * purpose — the build stays statically analysable, nothing traces the
+ * purpose, the build stays statically analysable, nothing traces the
  * whole project into the deployment, and the order below is the
  * editorial order the index page renders in.
  */
@@ -138,7 +138,7 @@ export async function loadAnswers(
 }
 
 /* ------------------------------------------------------------------ *
- * Validation — runs at build, so a page that breaks the template
+ * Validation, runs at build, so a page that breaks the template
  * cannot ship.
  * ------------------------------------------------------------------ */
 

@@ -6,7 +6,7 @@ import type { Service } from "@/lib/services";
  * reader to compare three boxes; a row list asks them to read three
  * lines, which is what this actually is.
  *
- * The whole row is the link — one target, no nested "learn more".
+ * The whole row is the link, one target, no nested "learn more".
  * Hover is a border and an opacity change. Nothing scales, nothing
  * lifts, nothing casts a shadow.
  *

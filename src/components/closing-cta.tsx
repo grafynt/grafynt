@@ -6,7 +6,7 @@ import { CtaButton } from "@/components/cta-button";
  * The one dark band on a page, and the last thing on it.
  *
  * One heading, one line, ONE button. There is no secondary action and
- * there is no prop to add one — a second choice next to the primary one
+ * there is no prop to add one, a second choice next to the primary one
  * measurably costs conversions, and this site has exactly one thing it
  * wants a reader to do.
  *

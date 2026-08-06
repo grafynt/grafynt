@@ -15,7 +15,7 @@ import { AUDIT_ID, CATALYST } from "@/lib/site";
 import { buildMetadata, graph, localBusinessSchema } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Grafynt — otomatisasi WhatsApp dan alur kerja untuk bisnis Indonesia",
+  title: "Grafynt, otomatisasi WhatsApp dan alur kerja untuk bisnis Indonesia",
   description:
     "Asisten WhatsApp AI, otomatisasi alur kerja, dan website yang mudah ditemukan mesin jawaban AI. Mulai dari audit gratis. Jakarta.",
   path: "/id",
@@ -60,7 +60,7 @@ export default async function IdHomePage() {
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead eyebrow="Layanan" title="Yang kami bangun." />
+        <SectionHead title="Yang kami bangun." />
         <ServiceRows
           services={SERVICES_ID}
           basePath="/id/layanan"
@@ -88,10 +88,7 @@ export default async function IdHomePage() {
 
       {answers.length > 0 ? (
         <Container as="section" className="border-rule border-t py-16">
-          <SectionHead
-            eyebrow="Jawaban"
-            title="Satu pertanyaan per halaman, dijawab tuntas."
-          />
+          <SectionHead title="Satu pertanyaan per halaman, dijawab tuntas." />
           <AnswerIndexList
             locale="id"
             className="mt-10"
@@ -105,11 +102,11 @@ export default async function IdHomePage() {
       ) : null}
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead eyebrow="Tentang" title="Siapa yang mengerjakan" />
+        <SectionHead title="Siapa yang mengerjakan" />
         <div className="mt-6 max-w-[var(--gf-measure)]">
           <p className="text-body text-ink">
             Grafynt dijalankan satu orang dari Jakarta. Sistemnya saya bangun
-            sendiri — itu sebabnya harga di situs ini ditulis terbuka, bukan
+            sendiri, itu sebabnya harga di situs ini ditulis terbuka, bukan
             &ldquo;hubungi kami&rdquo;. Lebih cepat buat kita berdua kalau Anda
             bisa menilai cocok atau tidak sebelum meeting.
           </p>

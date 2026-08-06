@@ -26,7 +26,7 @@ export async function generateMetadata({
   });
 }
 
-/** TODO(agent-2): salinan lengkap — ini halaman niat komersial lokal. */
+/** TODO(agent-2): salinan lengkap, ini halaman niat komersial lokal. */
 export default async function LayananPage({
   params,
 }: PageProps<"/id/layanan/[slug]">) {

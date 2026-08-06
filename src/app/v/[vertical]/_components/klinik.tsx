@@ -10,7 +10,7 @@ import { CATALYST, LADDER } from "@/lib/site";
  * Ported from grafynt-klinik-kecantikan.html.
  *
  * Palette, copy, section order, the WhatsApp thread and the pricing
- * cards are preserved. Not one hex value appears in this file — every
+ * cards are preserved. Not one hex value appears in this file, every
  * colour resolves through the `--gf-*` contract, which
  * [data-skin="klinik"] in src/styles/skins.css rebinds to porcelain,
  * wine and champagne. The shared WhatsAppThread, CtaButton and
@@ -18,10 +18,10 @@ import { CATALYST, LADDER } from "@/lib/site";
  * is the proof: a vertical is a skin, not a fork.
  *
  * Five deliberate changes from the source:
- *  1. Langkah 02 is Rp 5.300.000 (was 3.500.000 — that number is dead)
+ *  1. Langkah 02 is Rp 5.300.000 (was 3.500.000, that number is dead)
  *  2. Langkah 03 Catalyst is Rp 1.700.000 / bulan (was 1.250.000),
  *     read from CATALYST.verticalPrice
- *  3. No hover lift on the leak cards — border and opacity only
+ *  3. No hover lift on the leak cards, border and opacity only
  *  4. No scroll reveal; the source faded ~20 elements in on scroll
  *  5. The FAQ is <details open>: text in the DOM, expanded by default,
  *     works with JavaScript disabled
@@ -52,7 +52,7 @@ export function KlinikPage() {
               <em className="italic">Mulai dari audit gratis.</em>
             </>
           }
-          lede="Kami tunjukkan di mana klinik Anda bocor — lalu Anda putuskan langkah berikutnya."
+          lede="Kami tunjukkan di mana klinik Anda bocor, lalu Anda putuskan langkah berikutnya."
         />
       </main>
       <KlinikFooter />
@@ -93,7 +93,7 @@ function Hero() {
           <em className="text-accent italic">booking yang hilang.</em>
         </h1>
         <p className="text-lead text-ink-soft mt-6 max-w-[34ch]">
-          Grafynt memasang asisten WhatsApp AI untuk klinik Anda — balas calon
+          Grafynt memasang asisten WhatsApp AI untuk klinik Anda, balas calon
           pasien dalam hitungan detik, atur jadwal treatment otomatis, dan
           pangkas no-show. Tanpa nambah admin.
         </p>
@@ -119,17 +119,17 @@ function Hero() {
 
 const LEAKS = [
   {
-    tag: "Celah 01 — Kecepatan",
+    tag: "Celah 01, Kecepatan",
     title: "Balasan lambat",
     body: "Calon pasien tanya “masih ada slot, Kak?” jam 9 malam. Dibalas besok siang. Dia sudah booking di klinik sebelah yang membalas duluan.",
   },
   {
-    tag: "Celah 02 — Kehadiran",
+    tag: "Celah 02, Kehadiran",
     title: "No-show",
     body: "Pasien lupa jadwal, kursi tindakan kosong, jam terapis terbuang. Tanpa reminder otomatis, satu no-show sama dengan satu slot revenue hangus.",
   },
   {
-    tag: "Celah 03 — Visibilitas",
+    tag: "Celah 03, Visibilitas",
     title: "Tak muncul saat dicari",
     body: "Saat calon pasien tanya ChatGPT atau Google “klinik kecantikan terbaik di kota saya”, nama Anda tak muncul. Yang muncul justru kompetitor.",
   },
@@ -177,7 +177,7 @@ const STEPS = [
     title: "Audit",
     pill: "Gratis",
     free: true,
-    body: "Kami petakan kebocoran Anda: seberapa cepat WhatsApp dibalas, berapa DM yang tak terkonversi jadi booking, dan apakah klinik Anda muncul saat dicari di AI & Google. Hasilnya laporan ringkas dengan angka — bukan tebakan.",
+    body: "Kami petakan kebocoran Anda: seberapa cepat WhatsApp dibalas, berapa DM yang tak terkonversi jadi booking, dan apakah klinik Anda muncul saat dicari di AI & Google. Hasilnya laporan ringkas dengan angka, bukan tebakan.",
     side: "±3 hari · tanpa biaya",
   },
   {
@@ -185,7 +185,7 @@ const STEPS = [
     title: "Otomasi",
     pill: "Dibangun untuk Anda",
     free: false,
-    body: "Kami bangun asisten WhatsApp AI khusus klinik Anda — hafal daftar treatment, harga, dan jam praktik. Balas instan 24/7 dalam Bahasa, booking & reschedule otomatis, plus reminder anti no-show. Terpasang, bukan template.",
+    body: "Kami bangun asisten WhatsApp AI khusus klinik Anda, hafal daftar treatment, harga, dan jam praktik. Balas instan 24/7 dalam Bahasa, booking & reschedule otomatis, plus reminder anti no-show. Terpasang, bukan template.",
     side: "±1–2 minggu",
   },
   {
@@ -193,7 +193,7 @@ const STEPS = [
     title: CATALYST.name,
     pill: "Platform",
     free: false,
-    body: "Sistem operasional WhatsApp yang terus berjalan. Kelola membership, treatment, cabang, dan performa dari satu dashboard. Langganan bulanan — makin lama makin pintar karena belajar dari data percakapan klinik Anda sendiri.",
+    body: "Sistem operasional WhatsApp yang terus berjalan. Kelola membership, treatment, cabang, dan performa dari satu dashboard. Langganan bulanan, makin lama makin pintar karena belajar dari data percakapan klinik Anda sendiri.",
     side: "langganan bulanan",
   },
 ];
@@ -207,7 +207,7 @@ function Steps() {
           Tiga langkah, dari kebocoran ke sistem
         </h2>
         <p className="text-body text-ink-soft mt-4">
-          Kami tidak minta Anda langsung berlangganan. Mulai dari audit — baru
+          Kami tidak minta Anda langsung berlangganan. Mulai dari audit, baru
           naik saat Anda lihat hasilnya sendiri.
         </p>
       </div>
@@ -257,7 +257,7 @@ const FEATURES = [
   },
   {
     title: "Booking otomatis",
-    body: "Cek slot, jadwalkan, dan reschedule treatment langsung dari chat — tersinkron ke kalender klinik.",
+    body: "Cek slot, jadwalkan, dan reschedule treatment langsung dari chat, tersinkron ke kalender klinik.",
   },
   {
     title: "Reminder anti no-show",
@@ -265,7 +265,7 @@ const FEATURES = [
   },
   {
     title: "Jawab FAQ treatment",
-    body: "Harga, durasi, perawatan pasca-tindakan — dijawab akurat dan seragam, tanpa capek mengetik ulang.",
+    body: "Harga, durasi, perawatan pasca-tindakan, dijawab akurat dan seragam, tanpa capek mengetik ulang.",
   },
   {
     title: "Follow-up lead",
@@ -273,7 +273,7 @@ const FEATURES = [
   },
   {
     title: "Bahasa yang natural",
-    body: "Membalas dalam Bahasa Indonesia yang luwes — bisa menyesuaikan gaya dan bahasa daerah pelanggan Anda.",
+    body: "Membalas dalam Bahasa Indonesia yang luwes, bisa menyesuaikan gaya dan bahasa daerah pelanggan Anda.",
   },
 ];
 
@@ -290,7 +290,7 @@ function Features() {
             Satu asisten, kerja admin semalaman
           </h2>
           <p className="text-body text-on-dark/75 mt-4">
-            Semua percakapan berulang yang bikin tim front-office kewalahan —
+            Semua percakapan berulang yang bikin tim front-office kewalahan:
             ditangani otomatis, konsisten, tanpa lelah.
           </p>
         </div>
@@ -326,7 +326,7 @@ const WHY = [
   {
     n: "03",
     title: "Data pasien tetap milik Anda",
-    body: "Percakapan dan data tersimpan di infrastruktur privat klinik Anda — aman, dan menjadi aset yang makin bernilai seiring waktu.",
+    body: "Percakapan dan data tersimpan di infrastruktur privat klinik Anda, aman, dan menjadi aset yang makin bernilai seiring waktu.",
   },
 ];
 
@@ -339,7 +339,7 @@ function Why() {
       <div>
         <Eyebrow>Kenapa Grafynt</Eyebrow>
         <h2 className="font-display text-display-l text-ink mt-4">
-          Dibuat untuk cara Indonesia berbelanja — lewat{" "}
+          Dibuat untuk cara Indonesia berbelanja, lewat{" "}
           <em className="text-accent italic">WhatsApp,</em> dalam Bahasa.
         </h2>
       </div>
@@ -395,7 +395,7 @@ const PLANS = [
     name: "Langkah 03",
     price: CATALYST.verticalPrice,
     per: CATALYST.verticalPer,
-    desc: `Platform ${CATALYST.name} — sistem yang terus berjalan & berkembang.`,
+    desc: `Platform ${CATALYST.name}, sistem yang terus berjalan & berkembang.`,
     feature: false,
     flag: null,
     items: [
@@ -499,7 +499,7 @@ function Pricing() {
 const FAQS = [
   {
     q: "Apakah ini menggantikan admin saya?",
-    a: "Tidak. Asisten menangani chat berulang yang menyita waktu — sapaan, harga, cek slot, reminder. Admin Anda jadi punya ruang untuk fokus ke pasien yang butuh sentuhan manusia dan penjualan yang lebih bernilai.",
+    a: "Tidak. Asisten menangani chat berulang yang menyita waktu, sapaan, harga, cek slot, reminder. Admin Anda jadi punya ruang untuk fokus ke pasien yang butuh sentuhan manusia dan penjualan yang lebih bernilai.",
   },
   {
     q: "Data pasien saya aman?",
@@ -565,7 +565,7 @@ function KlinikFooter() {
             Gra<span className="text-accent-wash">fynt</span>
           </p>
           <p className="text-body-s mt-3 max-w-[34ch]">
-            Otomasi WhatsApp AI untuk bisnis Indonesia — dibangun dalam Bahasa,
+            Otomasi WhatsApp AI untuk bisnis Indonesia, dibangun dalam Bahasa,
             untuk cara Anda melayani pelanggan.
           </p>
         </div>

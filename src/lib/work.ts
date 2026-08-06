@@ -2,7 +2,7 @@
  * Case studies.
  *
  * There is no client work published here yet, and nothing invented
- * fills the gap — no logo wall, no testimonial carousel, no metrics
+ * fills the gap, no logo wall, no testimonial carousel, no metrics
  * that did not happen.
  *
  * The first real entry is our own: the month-zero prompt-panel

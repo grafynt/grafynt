@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Fraunces, Hanken_Grotesk, Space_Mono } from "next/font/google";
 
 /**
- * VERTICAL OFFER PAGES — /v/[vertical]
+ * VERTICAL OFFER PAGES, /v/[vertical]
  *
  * Not in the nav. Not in the sitemap. noindex. These are sent to a
  * prospect after an audit; nobody browses here.
@@ -16,7 +16,7 @@ import { Fraunces, Hanken_Grotesk, Space_Mono } from "next/font/google";
  * site's bundle never carries them.
  *
  * No site nav and no site footer: this page has one job and one CTA
- * (WhatsApp, not Cal.com — see CtaButton).
+ * (WhatsApp, not Cal.com, see CtaButton).
  */
 
 const fraunces = Fraunces({

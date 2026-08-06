@@ -6,8 +6,8 @@ import { AUDIT, type Audit } from "@/lib/site";
  * between the home page, /pricing and the answer pages.
  *
  * A stepped vertical line with dots, not a grid of cards. The four
- * steps are sequential — they happen in an order and produce one
- * document — and a grid would claim they are parallel options.
+ * steps are sequential, they happen in an order and produce one
+ * document, and a grid would claim they are parallel options.
  *
  * The line and the dots are --gf-rule and --gf-accent as borders and
  * fills only. The test is the last step and carries the filled dot,

@@ -20,7 +20,7 @@ import { LADDER } from "@/lib/site";
  */
 /**
  * The klinik offer page thread, preserved verbatim from the source
- * page — including its emoji and its one exclamation mark. That
+ * page, including its emoji and its one exclamation mark. That
  * audience and that register are correct there; the English home page
  * deliberately carries neither.
  */
@@ -65,7 +65,7 @@ export function klinikThread(): Thread {
         time: "21:48",
         body: (
           <>
-            Siap Kak! Booking <strong>Sabtu, 13.00 — Acne Scar Laser</strong>{" "}
+            Siap Kak! Booking <strong>Sabtu, 13.00, Acne Scar Laser</strong>{" "}
             sudah saya catat ✅ Nanti H-1 saya kirim reminder ya. Ditunggu
             kedatangannya 💕
           </>
@@ -96,7 +96,7 @@ export function homeThread(): Thread {
         at: 1500,
         typingFrom: 1000,
         time: "21:47",
-        body: "Yes — that is most of what we build. An agent on your own number that answers questions, checks availability and books the slot, in whatever language your customers write in. Your team stops re-typing the same six answers.",
+        body: "Yes, that is most of what we build. An agent on your own number that answers questions, checks availability and books the slot, in whatever language your customers write in. Your team stops re-typing the same six answers.",
       },
       {
         from: "in",
@@ -112,7 +112,7 @@ export function homeThread(): Thread {
         body: (
           <>
             <strong>{automation.price}</strong> one-time to build it,{" "}
-            {automation.timeline}. Before any of that there is a free audit —
+            {automation.timeline}. Before any of that there is a free audit:
             about three days, no cost, no pitch.
           </>
         ),

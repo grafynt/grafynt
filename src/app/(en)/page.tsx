@@ -22,7 +22,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Grafynt — AI automation for small and medium businesses",
+  title: "Grafynt, AI automation for small and medium businesses",
   description:
     "WhatsApp AI agents, n8n workflow automation, and websites built to be found by AI answer engines. Jakarta-based, working with teams in six markets.",
   path: "/",
@@ -49,10 +49,9 @@ export default async function HomePage() {
             Your customers already message you. Answering every one is the part
             that doesn&rsquo;t scale.
           </h1>
-          <p className="text-lead text-ink-soft mt-6 max-w-[46ch]">
+          <p className="text-lead text-ink-soft mt-6 max-w-[42ch]">
             WhatsApp agents, workflow automation, and websites built to be
-            found. Jakarta-based, working with teams in Indonesia, the US, the
-            UK, Australia, Singapore and the UAE.
+            found. Jakarta-based, working across six markets.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <CtaButton />
@@ -69,7 +68,7 @@ export default async function HomePage() {
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead eyebrow="What we build" title="Three things, done properly." />
+        <SectionHead title="Three things, done properly." />
         <ServiceRows
           services={SERVICES_EN}
           basePath="/services"
@@ -96,10 +95,7 @@ export default async function HomePage() {
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead
-          eyebrow="Answers"
-          title="One question per page, answered properly."
-        />
+        <SectionHead title="One question per page, answered properly." />
         <AnswerIndexList
           className="mt-10"
           items={answers.map((answer) => ({
@@ -111,12 +107,12 @@ export default async function HomePage() {
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead eyebrow="Who builds this" title={SITE.founder.name} />
+        <SectionHead title={SITE.founder.name} />
         <div className="mt-6 max-w-[var(--gf-measure)]">
           <p className="text-body text-ink">
             Grafynt is one person in Jakarta. I build the systems myself, which
             is why the pricing on this site is a real number rather than a
-            conversation, and why the audit is free — it is faster for both of
+            conversation, and why the audit is free. It is faster for both of
             us if you can see the problem before you decide anything.
           </p>
           <p className="text-body text-ink mt-5">

@@ -6,13 +6,13 @@ import { SERVICES_EN, SERVICES_ID } from "@/lib/services";
 import { PUBLISHED_WORK } from "@/lib/work";
 
 /**
- * sitemap.xml — generated at build from the same registries the pages
+ * sitemap.xml, generated at build from the same registries the pages
  * render from, so it cannot drift when content is added. Adding an
  * answer, a service or publishing a case study needs no edit here.
  *
  * Excluded: everything under NOINDEX_PREFIXES (/v/*, the vertical
- * offer pages) and unpublished work. Those pages stay crawlable —
- * they are noindexed by meta tag, not by robots.txt — they are simply
+ * offer pages) and unpublished work. Those pages stay crawlable ,
+ * they are noindexed by meta tag, not by robots.txt, they are simply
  * never advertised. The filter at the bottom is a backstop so a future
  * registry entry cannot leak one in.
  *
@@ -44,8 +44,8 @@ function route(
 /**
  * hreflang, but only where BOTH sides of the pair are routes this
  * sitemap is actually emitting. HREFLANG_PAIRS is a declaration of
- * intent and can run ahead of the content — /id/jawaban/* is declared
- * but the Bahasa answer registry is still empty — and an alternate
+ * intent and can run ahead of the content, /id/jawaban/* is declared
+ * but the Bahasa answer registry is still empty, and an alternate
  * pointing at a 404 is worse than no alternate at all.
  */
 function languagesFor(

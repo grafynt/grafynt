@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 import { graph, organizationSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
-/* Fonts are downloaded at build time and served from our own origin —
+/* Fonts are downloaded at build time and served from our own origin ,
    no request ever goes to Google. Display is preloaded because the h1
    is the LCP element on every page; body and mono are not, to keep the
    critical request chain short. */
@@ -36,7 +36,7 @@ const mono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Grafynt — AI automation for small and medium businesses",
+    default: "Grafynt, AI automation for small and medium businesses",
     template: "%s · Grafynt",
   },
   description: SITE.description,

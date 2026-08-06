@@ -13,7 +13,7 @@ export const metadata = buildMetadata({
 
 /**
  * Empty on purpose. No logo wall, no testimonial carousel, no invented
- * metrics — an empty section is more credible than a fabricated one,
+ * metrics, an empty section is more credible than a fabricated one,
  * and this is the page where that matters most.
  */
 export default function WorkIndex() {
@@ -27,7 +27,7 @@ export default function WorkIndex() {
       {PUBLISHED_WORK.length === 0 ? (
         <p className="text-body text-ink-soft mt-8 max-w-[52ch]">
           Nothing here yet. The first entry will be our own prompt-panel
-          baseline — what AI answer engines said about Grafynt before this site
+          baseline, what AI answer engines said about Grafynt before this site
           existed, measured again once it has been live long enough to matter.
         </p>
       ) : (

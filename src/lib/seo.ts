@@ -6,7 +6,7 @@ import { SITE, HREFLANG_PAIRS, CAL_URL } from "@/lib/site";
  * ------------------------------------------------------------------ */
 
 type PageMetaInput = {
-  /** Written for a human, unique per page. No " | Grafynt" — the
+  /** Written for a human, unique per page. No " | Grafynt", the
    *  template in the root layout adds that. */
   title: string;
   /** Unique per page, a real sentence, 120–160 chars. */
@@ -75,7 +75,7 @@ export function absoluteUrl(path: string): string {
 
 /**
  * hreflang, only where a real equivalent page exists. The EN/ID split
- * is deliberate — most pages are single-language on purpose — and
+ * is deliberate, most pages are single-language on purpose, and
  * pointing hreflang at a page that does not exist is worse than
  * omitting it.
  */
@@ -184,7 +184,7 @@ export type Faq = { question: string; answer: string };
 
 /**
  * Every answer page carries this, built from its "Common questions"
- * section. The answers must also be visible in the DOM — schema that
+ * section. The answers must also be visible in the DOM, schema that
  * describes text a reader cannot see is a manual-action risk, not a
  * shortcut.
  */
@@ -241,7 +241,7 @@ export function auditOfferSchema() {
 
 /**
  * Wraps one or more schema objects into a single @graph document.
- * One <script> per page beats several — it lets the entities
+ * One <script> per page beats several, it lets the entities
  * cross-reference by @id instead of repeating themselves.
  */
 export function graph(...nodes: object[]) {

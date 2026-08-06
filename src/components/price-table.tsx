@@ -1,7 +1,7 @@
 import { LADDER, type Rung } from "@/lib/site";
 
 /**
- * /pricing. Every figure comes from LADDER — no number is typed into
+ * /pricing. Every figure comes from LADDER, no number is typed into
  * this file, and a rung with `price: null` renders an em dash and its
  * role instead, because Catalyst is named on the public site and not
  * sold on it.
@@ -10,7 +10,7 @@ import { LADDER, type Rung } from "@/lib/site";
  * tabular data, models read it as tabular data, and a div grid would
  * throw that away for nothing.
  *
- * The accent appears on exactly one thing here — the numeric price
+ * The accent appears on exactly one thing here, the numeric price
  * cell. That is the single documented exception to "the accent is
  * never a text colour", and the figures are mono at --gf-t-data, where
  * the weight carries.

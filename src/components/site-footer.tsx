@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 /**
  * The footer is also the sitemap a reader can see, and every link in
  * it is an internal retrieval signal. /v/* routes are never listed
- * here — they are sent, not browsed to.
+ * here, they are sent, not browsed to.
  */
 export function SiteFooter({ locale = "en" }: { locale?: "en" | "id" }) {
   const t = copy[locale];

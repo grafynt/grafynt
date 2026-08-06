@@ -12,11 +12,11 @@ import { articleSchema, faqPageSchema, graph } from "@/lib/seo";
  * renders through this, and the parts that earn citations are owned
  * here rather than by the MDX body:
  *
- *   h1              — meta.question, verbatim, as a question
- *   lead            — meta.lead, always the first paragraph
- *   common questions— rendered from meta.faqs, so the visible text and
+ *   h1             , meta.question, verbatim, as a question
+ *   lead           , meta.lead, always the first paragraph
+ *   common questions, rendered from meta.faqs, so the visible text and
  *                     the FAQPage schema cannot drift apart
- *   byline + date   — attributable authorship, and freshness
+ *   byline + date  , attributable authorship, and freshness
  *
  * The MDX body therefore covers, in order:
  *   ## The short version      3–5 bullets, each a complete claim
@@ -93,8 +93,8 @@ export function AnswerPage({
             <p className="text-body-s text-ink-soft max-w-[var(--gf-measure)]">
               <span className="text-ink font-semibold">
                 {SITE.founder.name}
-              </span>{" "}
-              — {t.bio}
+              </span>
+              , {t.bio}
             </p>
             <p className="text-note text-ink-soft mt-3 font-mono uppercase">
               {t.updated}{" "}

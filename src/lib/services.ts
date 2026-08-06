@@ -1,5 +1,5 @@
 /**
- * The three things Grafynt sells and builds. Broad by design — this
+ * The three things Grafynt sells and builds. Broad by design, this
  * registry is what keeps the public site from reading as a
  * single-industry agency. No vertical is named here, ever.
  */
@@ -10,7 +10,7 @@ export type Service = {
    *  description. Written to be read. */
   summary: string;
   /** The meta description. Written for a search result, 120–165 chars.
-   *  Separate from `summary` because the two jobs are different — one
+   *  Separate from `summary` because the two jobs are different, one
    *  opens a page, the other has to earn the click. */
   metaDescription: string;
   /** Concrete, from src/lib/site.ts. Every service states one. */

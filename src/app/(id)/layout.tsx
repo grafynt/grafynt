@@ -3,7 +3,7 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 
 /**
- * Bahasa surface. Not a mirror of the English site — the split is by
+ * Bahasa surface. Not a mirror of the English site, the split is by
  * query, not by page, so only the routes that earn a Bahasa version
  * have one. See HREFLANG_PAIRS in src/lib/site.ts.
  *

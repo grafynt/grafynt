@@ -15,7 +15,7 @@ import Link from "next/link";
 const components: MDXComponents = {
   h1: ({ children, ...props }) => (
     // Answer pages render their h1 from meta.question in the layout.
-    // An h1 inside MDX body copy is a mistake — flag it loudly rather
+    // An h1 inside MDX body copy is a mistake, flag it loudly rather
     // than silently shipping two.
     <h1
       {...props}

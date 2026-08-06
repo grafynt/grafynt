@@ -2,7 +2,7 @@
 @import "../styles/skins.css";
 
 /* ============================================================
-   LAYER 1 — the skin contract.
+   LAYER 1, the skin contract.
    Every token a component is allowed to reference lives here.
    A vertical skin re-binds these names and nothing else.
    See src/styles/skins.css.
@@ -13,8 +13,8 @@
   --gf-surface: #f6f7fb; /* paper */
   --gf-surface-2: #ffffff; /* paper-2, elevated */
   --gf-text: #141852; /* ink */
-  --gf-text-soft: #565c8c; /* ink-soft   — 5.85:1 on paper */
-  --gf-text-faint: #8b90b0; /* ink-faint  — 2.92:1, DECORATIVE ONLY */
+  --gf-text-soft: #565c8c; /* ink-soft  , 5.85:1 on paper */
+  --gf-text-faint: #8b90b0; /* ink-faint , 2.92:1, DECORATIVE ONLY */
   --gf-text-on-dark: #ffffff;
 
   /* --- accent ---------------------------------------------
@@ -59,7 +59,7 @@
   --gf-t-note: 0.75rem;
 
   /* --- geometry ------------------------------------------- */
-  --gf-radius: 2px; /* structural — never above 8px on the house skin */
+  --gf-radius: 2px; /* structural, never above 8px on the house skin */
   --gf-radius-btn: 2px;
   --gf-section-y: 4rem;
   --gf-measure: 66ch;
@@ -77,7 +77,7 @@
 }
 
 /* ============================================================
-   Tailwind theme — maps utilities onto the contract.
+   Tailwind theme, maps utilities onto the contract.
    `inline` so utilities resolve the var at use-site, which is
    what makes a nested [data-skin] wrapper re-skin everything
    inside it without any component knowing.
@@ -205,7 +205,7 @@
 }
 
 /* ============================================================
-   The hero thread — the one named exception to the 600ms page
+   The hero thread, the one named exception to the 600ms page
    entrance, capped at 3.55s, played once, never looped.
 
    Read the default state first: everything is VISIBLE. Nothing

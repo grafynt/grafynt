@@ -42,7 +42,7 @@ export default function AboutPage() {
         <div className="mt-12 max-w-[var(--gf-measure)]">
           <p className="text-body text-ink">
             I build the systems myself. That is the reason the prices on this
-            site are published rather than quoted on request — there is no sales
+            site are published rather than quoted on request. There is no sales
             layer to protect, and it is faster for both of us if you can rule
             Grafynt out before a call rather than after one.
           </p>
@@ -70,9 +70,8 @@ export default function AboutPage() {
             Automation here means reducing the time your operations take, not
             replacing the people who run them. In practice the agent absorbs the
             same handful of questions your team answers a hundred times a week
-            — hours, prices, availability, order status — and hands anything
-            with judgement in it to a person, quickly and with the history
-            attached. Every business I have built for has kept its staff.
+            (hours, prices, availability, order status) and hands anything with
+            judgement in it to a person, quickly and with the history attached. Every business I have built for has kept its staff.
           </p>
 
           <h2 className="font-display text-display-m text-ink mt-12">

@@ -11,7 +11,7 @@ import { SITE } from "@/lib/site";
  *
  * DO NOT add `Disallow: /v/` here. Those pages carry a noindex meta
  * tag (src/app/v/[vertical]/page.tsx). A robots.txt disallow stops a
- * crawler fetching the page at all, so it never reads the noindex —
+ * crawler fetching the page at all, so it never reads the noindex ,
  * which is exactly how a noindexed URL ends up indexed from inbound
  * links anyway. Crawlable + noindex is the combination that works.
  * /v/* is kept out of the sitemap instead; see src/app/sitemap.ts.

@@ -1,7 +1,7 @@
 /**
  * Renders a schema.org document as a plain <script type="application/ld+json">.
  *
- * A native script tag is correct here — JSON-LD is data, not code, so
+ * A native script tag is correct here, JSON-LD is data, not code, so
  * next/script would only get in the way. `<` is escaped to its unicode
  * form so a string in the payload cannot break out of the tag.
  */

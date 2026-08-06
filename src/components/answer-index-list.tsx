@@ -15,7 +15,7 @@ export type AnswerIndexItem = {
  * A ruled list of question links, used by /answers and /id/jawaban and
  * by any page that wants to point at a few related answers.
  *
- * The question is the whole link text — never "read more" — because
+ * The question is the whole link text, never "read more", because
  * link text is a retrieval signal and "read more" is not one. Rules
  * instead of cards; the list is meant to be scanned top to bottom, not
  * compared side to side.

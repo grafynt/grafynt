@@ -2,7 +2,7 @@ import { LADDER, digitSum, type Rung } from "@/lib/site";
 import { CtaButton } from "@/components/cta-button";
 
 /**
- * THE LADDER — four rungs, read from LADDER in src/lib/site.ts. No name,
+ * THE LADDER, four rungs, read from LADDER in src/lib/site.ts. No name,
  * price or timeline is typed into this file.
  *
  * Shape:
@@ -20,9 +20,9 @@ import { CtaButton } from "@/components/cta-button";
  * THE ONE SCROLL REVEAL ON THE SITE, and it is CSS-only:
  *
  *   default state = final state. The rungs are opaque and in position
- *   in the markup. The reveal is added *inside* two guards — a
+ *   in the markup. The reveal is added *inside* two guards, a
  *   prefers-reduced-motion: no-preference media query and an
- *   @supports (animation-timeline: view()) test — so a browser without
+ *   @supports (animation-timeline: view()) test, so a browser without
  *   scroll-driven animations, a reader with reduced motion, and anyone
  *   with JavaScript disabled all get the finished ladder immediately.
  *   No IntersectionObserver, no client component, no library.
