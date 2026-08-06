@@ -1,4 +1,4 @@
-import { Fragment, type ReactNode } from "react";
+import { Fragment, type CSSProperties, type ReactNode } from "react";
 
 /**
  * THE SIGNATURE.
@@ -7,28 +7,31 @@ import { Fragment, type ReactNode } from "react";
  * night, the agent answers and books them inside a minute. It
  * demonstrates the product instead of describing it.
  *
+ * THERE IS NO JAVASCRIPT HERE AT ALL. The whole sequence is CSS
+ * animations with per-element delays, passed in as a --at custom
+ * property. An earlier version used a tiny inline script to stage the
+ * bubbles; it ran during parse, mutated attributes React was about to
+ * hydrate, and produced a hydration mismatch that React explicitly
+ * refuses to patch up. CSS has none of that problem and is strictly
+ * better on every other axis too.
+ *
  * The three constraints that shape every decision in this file:
  *
- *  1. IT MUST WORK WITH JAVASCRIPT DISABLED. The completed thread is
- *     the default state in the markup and in the CSS. The inline
- *     script *opts into* the animation by setting data-staged; it
- *     never creates content. A crawler and a reader with a failed
- *     bundle both get the whole conversation.
+ *  1. IT MUST WORK WITH JAVASCRIPT DISABLED. It does, and now it even
+ *     animates: CSS animations do not need a runtime. A crawler reads
+ *     the full conversation out of the markup regardless.
  *
  *  2. ZERO LAYOUT SHIFT. Every bubble occupies its final space from
- *     first paint, staging animates opacity and 6px of transform,
+ *     first paint; the animation touches opacity and 6px of transform,
  *     nothing else. The typing indicator is absolutely positioned
  *     inside its bubble's slot, so it costs no height when it appears
- *     or disappears. Nothing is appended to the DOM, ever.
+ *     or disappears. Nothing is ever added to or removed from the DOM.
  *
  *  3. 3.55s CEILING, PLAYS ONCE. No loop, no IntersectionObserver, no
- *     animation library. Under prefers-reduced-motion the script
- *     returns before staging anything and the finished thread is what
- *     you get.
- *
- * The script is inlined immediately after the markup so it runs during
- * parse, before first paint, otherwise the complete thread would flash
- * before hiding itself.
+ *     animation library. The entire staging rule lives inside
+ *     `@media (prefers-reduced-motion: no-preference)`, so under
+ *     reduced motion no rule applies, nothing is ever hidden, and the
+ *     finished thread is simply what you get.
  *
  * Skin-agnostic: colours come from --gf-chat-* so a vertical skin
  * restyles it without a fork. See src/styles/skins.css.
@@ -100,7 +103,8 @@ export function WhatsAppThread({
               <Fragment key={i}>
                 {thread.badge && i === badgeIndex ? (
                   <li
-                    data-at={thread.badge.at}
+                    data-at
+                    style={delay(thread.badge.at)}
                     className="text-ink-soft self-center rounded-full bg-white/60 px-2.5 py-0.5 font-[family-name:var(--gf-font-mono)] text-[0.6rem] tracking-[0.12em] uppercase"
                   >
                     {thread.badge.text}
@@ -115,8 +119,7 @@ export function WhatsAppThread({
                   {message.from === "out" && message.typingFrom != null ? (
                     <span
                       data-typing
-                      data-at={message.typingFrom}
-                      data-until={message.at}
+                      style={typingWindow(message.typingFrom, message.at)}
                       aria-hidden
                       className="bg-chat-in absolute top-0 left-0 hidden items-center gap-1 rounded-xl rounded-tl-[3px] px-3.5 py-3"
                     >
@@ -127,7 +130,8 @@ export function WhatsAppThread({
                   ) : null}
 
                   <span
-                    data-at={message.at}
+                    data-at
+                    style={delay(message.at)}
                     className={[
                       "text-ink block rounded-xl px-3 py-2.5 text-[0.875rem] leading-snug",
                       message.from === "out"
@@ -152,21 +156,22 @@ export function WhatsAppThread({
           {thread.caption}
         </p>
       ) : null}
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: stagingScript(id),
-        }}
-      />
     </div>
   );
 }
 
+/** When this element animates in. Read by the CSS in globals.css. */
+function delay(at: number): CSSProperties {
+  return { "--at": `${at}ms` } as CSSProperties;
+}
+
 /**
- * Runs during parse, before first paint. Adds data-staged, which is the
- * only thing that hides anything, so if this never runs, the thread is
- * simply complete.
+ * The typing indicator's whole visible life: it appears at `from` and
+ * is gone by `to`, which is the moment its bubble lands.
  */
-function stagingScript(id: string): string {
-  return `(function(){var r=document.getElementById(${JSON.stringify(id)});if(!r)return;try{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return}catch(e){return}r.setAttribute("data-staged","");var n=r.querySelectorAll("[data-at]");for(var i=0;i<n.length;i++){(function(el){var a=+el.getAttribute("data-at");setTimeout(function(){el.setAttribute("data-shown","")},a);var u=el.getAttribute("data-until");if(u!==null){setTimeout(function(){el.removeAttribute("data-shown")},+u)}})(n[i])}})();`;
+function typingWindow(from: number, to: number): CSSProperties {
+  return {
+    "--at": `${from}ms`,
+    "--dur": `${Math.max(to - from, 120)}ms`,
+  } as CSSProperties;
 }

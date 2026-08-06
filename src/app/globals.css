@@ -219,38 +219,62 @@
    so nothing in this sequence can move layout.
    ============================================================ */
 
+/* The typing indicator is a device of the animation. It means nothing
+   in the finished thread, so it is hidden unless the animation runs. */
 [data-thread] [data-typing] {
   display: none;
 }
 
-[data-thread][data-staged] [data-at] {
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 280ms var(--gf-ease),
-    transform 280ms var(--gf-ease);
+/* Everything that hides a bubble lives inside this query. Under
+   reduced motion not one rule below applies, so nothing is ever
+   hidden and the finished conversation is what renders. The same is
+   true if CSS animations are unsupported. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-thread] [data-at] {
+    opacity: 0;
+    animation: gf-bubble-in 280ms var(--gf-ease) var(--at) forwards;
+  }
+
+  [data-thread] [data-typing] {
+    display: inline-flex;
+    opacity: 0;
+    animation: gf-typing var(--dur) linear var(--at) forwards;
+  }
+
+  [data-thread] [data-typing] i {
+    animation: gf-blink 1.3s infinite ease-in-out;
+  }
+
+  [data-thread] [data-typing] i:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+
+  [data-thread] [data-typing] i:nth-child(3) {
+    animation-delay: 0.36s;
+  }
 }
 
-[data-thread][data-staged] [data-at][data-shown] {
-  opacity: 1;
-  transform: none;
+@keyframes gf-bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-[data-thread][data-staged] [data-typing] {
-  display: inline-flex;
-  transform: none;
-}
-
-[data-thread][data-staged] [data-typing] i {
-  animation: gf-blink 1.3s infinite ease-in-out;
-}
-
-[data-thread][data-staged] [data-typing] i:nth-child(2) {
-  animation-delay: 0.18s;
-}
-
-[data-thread][data-staged] [data-typing] i:nth-child(3) {
-  animation-delay: 0.36s;
+/* Visible for its whole window, then gone by the time the bubble it
+   belongs to lands. `forwards` holds the final state, which is 0. */
+@keyframes gf-typing {
+  0%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes gf-blink {

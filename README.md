@@ -108,7 +108,7 @@ A vertical offer page is a **skin, not a fork**. No component is duplicated and 
 
 **Static everywhere. No client JS of our own.** There is no `"use client"` anywhere in this repo and there should never be one. If a component seems to need client JS, the design is wrong, the answer is a different design, not a directive.
 
-The only exception is the ~700-byte inline script that stages the hero thread, in [`src/components/whatsapp-thread.tsx`](src/components/whatsapp-thread.tsx). It adds no content and the page is complete without it.
+There are no exceptions. Not one line of JavaScript in this repo runs in the browser. The hero thread animates entirely in CSS, with per-element delays passed as a `--at` custom property; an earlier version used a small inline script and it produced a React hydration mismatch, because mutating attributes during parse fights the hydration React is about to do. CSS has no such problem.
 
 For the record, since the original brief set a hard budget of 80kb gzipped: the site ships **133.6kb gzipped** on a first load, and none of it is ours. That is the React 19 + Next.js App Router client runtime, hydration and the router, which loads whether or not anything uses it. (A further 38.5kb `noModule` polyfill bundle exists but no modern browser downloads it.) Closing a 53kb gap would mean leaving App Router entirely, and the trade was judged not worth it, because every page renders complete with JavaScript disabled: the bytes carry hydration and prefetching, not content and not LCP.
 
