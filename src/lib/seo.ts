@@ -22,9 +22,32 @@ type PageMetaInput = {
 };
 
 /**
+ * The sitewide share image, generated at build by
+ * src/app/opengraph-image.tsx and served from that route.
+ *
+ * Referenced explicitly rather than left to Next's file-convention
+ * inheritance. Every public page lives inside a route group, (en) or
+ * (id), and the image at the root segment was not reaching them: the
+ * rendered head carried `twitter:card = summary_large_image` with no
+ * image at all, which is a blank card on every platform. Naming it
+ * here cannot silently stop working, and it covers all 35 routes
+ * including /v/*, whose whole delivery mechanism is a pasted link.
+ *
+ * Relative on purpose, so `metadataBase` in the root layout resolves it
+ * and a preview deployment points at its own host rather than
+ * production's.
+ */
+const OG_IMAGE = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "Grafynt, a GEO/AEO/SEO agency for demand capture",
+} as const;
+
+/**
  * Every page exports `generateMetadata` or `metadata` built through
  * this. It guarantees: a self-referencing canonical, hreflang where a
- * real EN/ID pair exists, and correct og/twitter.
+ * real EN/ID pair exists, a share image, and correct og/twitter.
  */
 export function buildMetadata({
   title,
@@ -42,6 +65,8 @@ export function buildMetadata({
       title: resolvedTitle,
       description,
       robots: { index: false, follow: false },
+      openGraph: { title, description, images: [OG_IMAGE] },
+      twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE] },
     };
   }
 
@@ -59,11 +84,13 @@ export function buildMetadata({
       title,
       description,
       locale: locale === "id" ? "id_ID" : "en_US",
+      images: [OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [OG_IMAGE],
     },
   };
 }
