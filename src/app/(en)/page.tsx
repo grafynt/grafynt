@@ -4,13 +4,13 @@ import { Eyebrow } from "@/components/eyebrow";
 import { SectionHead } from "@/components/section-head";
 import { CtaButton } from "@/components/cta-button";
 import { JsonLd } from "@/components/json-ld";
-import { WhatsAppThread } from "@/components/whatsapp-thread";
+import { EngineAnswer } from "@/components/engine-answer";
 import { ServiceRows } from "@/components/service-rows";
 import { Ladder } from "@/components/ladder";
 import { AuditPanel } from "@/components/audit-panel";
 import { AnswerIndexList } from "@/components/answer-index-list";
 import { ClosingCta } from "@/components/closing-cta";
-import { homeThread } from "@/lib/threads";
+import { homeEngineAnswer } from "@/lib/engine-answer";
 import { loadAnswers } from "@/lib/answers";
 import { SERVICES_EN } from "@/lib/services";
 import { SITE } from "@/lib/site";
@@ -65,7 +65,7 @@ export default async function HomePage() {
           </div>
         </div>
 
-        <WhatsAppThread thread={homeThread()} id="home-thread" />
+        <EngineAnswer script={homeEngineAnswer()} id="home-answer" />
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">

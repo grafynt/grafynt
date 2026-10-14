@@ -1,18 +1,15 @@
 import type { Thread } from "@/components/whatsapp-thread";
 
 /**
- * The hero threads.
+ * The /v/* hero thread.
  *
- * Both are Grafynt's own inbox, not a customer's, and that is
- * deliberate on the public page: a named business would either invent a
- * client or narrow the site toward one industry, and the public site
- * stays broad.
+ * It is Grafynt's own inbox, not a customer's. A WhatsApp thread is
+ * right here and only here: that audience arrives from a DM, on a
+ * phone, and WhatsApp is the page's one CTA. The public home page shows
+ * the problem instead, via EngineAnswer, because a visitor who arrived
+ * from a search result has not opened a chat with anyone.
  *
- * They are WhatsApp threads because that is the channel a prospect in
- * this market actually opens, and on /v/* routes it is also the one
- * CTA. The thread demonstrates the first conversation, not a product.
- *
- * Timing, ms from load. Ceiling is 3.55s and both land on it exactly.
+ * Timing, ms from load. Ceiling is 3.55s and this lands on it exactly.
  *   200   first message in
  *   700   badge
  *  1000   typing  -> 1500 reply out
@@ -81,57 +78,6 @@ export function klinikThread(): Thread {
         at: 3550,
         time: "21:48",
         body: "Kirim nama klinik dan kotanya, saya jalankan auditnya.",
-      },
-    ],
-  };
-}
-
-export function homeThread(): Thread {
-  return {
-    title: "Grafynt",
-    status: "online · Jakarta",
-    mark: "G",
-    badge: { text: "Audit requested", at: 700 },
-    caption: "Transcript · 21:47",
-    messages: [
-      {
-        from: "in",
-        at: 200,
-        time: "21:47",
-        body: "When people ask ChatGPT for a supplier like us, it names two of our competitors and not us. We rank fine on Google. Why the difference?",
-      },
-      {
-        from: "out",
-        at: 1500,
-        typingFrom: 1000,
-        time: "21:47",
-        body: "Because a ranking and a citation are not the same thing. Assistants retrieve live pages and quote whichever one answers the question outright. If your site explains what you do but never answers the question, it gets read and skipped.",
-      },
-      {
-        from: "in",
-        at: 2300,
-        time: "21:48",
-        body: "So how do we find out where we stand?",
-      },
-      {
-        from: "out",
-        at: 3050,
-        typingFrom: 2600,
-        time: "21:48",
-        body: (
-          <>
-            The audit. Three findings and a retrieval test across ChatGPT,
-            Gemini, Perplexity and AI Overviews, including every competitor
-            named instead of you. <strong>Rp 710.000</strong>, about three
-            days, and free if a website build follows.
-          </>
-        ),
-      },
-      {
-        from: "out",
-        at: 3550,
-        time: "21:48",
-        body: "I can put a time on Jonathan's calendar now.",
       },
     ],
   };
