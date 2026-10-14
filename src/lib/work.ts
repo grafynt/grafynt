@@ -25,7 +25,7 @@ export const WORK: readonly CaseStudy[] = [
     slug: "ai-visibility-baseline",
     title: "Measuring what AI says about us, before we did anything",
     summary:
-      "The month-zero prompt panel for Grafynt across ChatGPT, Gemini, Perplexity and Google AI Overviews.",
+      "The month-zero prompt panel for Grafynt across ChatGPT, Gemini, Perplexity and Google AI Overviews, measured against ordinary search for the same queries.",
     published: false,
   },
 ] as const;

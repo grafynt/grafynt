@@ -36,7 +36,7 @@ const mono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Grafynt, AI automation for small and medium businesses",
+    default: "Grafynt, a GEO/AEO/SEO agency for demand capture",
     template: "%s · Grafynt",
   },
   description: SITE.description,

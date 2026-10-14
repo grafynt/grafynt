@@ -1,8 +1,8 @@
 import { AUDIT, type Audit } from "@/lib/site";
 
 /**
- * What the free audit is: three findings and a response-speed test,
- * read from AUDIT in src/lib/site.ts so the description cannot drift
+ * What the audit is: three findings and a retrieval test, read
+ * from AUDIT in src/lib/site.ts so the description cannot drift
  * between the home page, /pricing and the answer pages.
  *
  * A stepped vertical line with dots, not a grid of cards. The four

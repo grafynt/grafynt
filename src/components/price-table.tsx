@@ -3,8 +3,8 @@ import { LADDER, type Rung } from "@/lib/site";
 /**
  * /pricing. Every figure comes from LADDER, no number is typed into
  * this file, and a rung with `price: null` renders an em dash and its
- * role instead, because Catalyst is named on the public site and not
- * sold on it.
+ * role instead, because one of the services is genuinely quoted per
+ * project and a placeholder number would be a lie.
  *
  * A real <table> with a real <caption> and scope-d headers: this is
  * tabular data, models read it as tabular data, and a div grid would
@@ -114,13 +114,13 @@ const copy = {
     item: "What",
     price: "Price",
     timeline: "Timeline",
-    unpriced: "Not sold yet",
+    unpriced: "Quoted per project",
   },
   id: {
     caption: "Semua harga sekali bayar kecuali disebutkan lain",
     item: "Layanan",
     price: "Harga",
     timeline: "Waktu",
-    unpriced: "Belum dijual",
+    unpriced: "Dihitung per proyek",
   },
 } as const;

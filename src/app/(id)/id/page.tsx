@@ -11,24 +11,25 @@ import { AnswerIndexList } from "@/components/answer-index-list";
 import { ClosingCta } from "@/components/closing-cta";
 import { loadAnswers } from "@/lib/answers";
 import { SERVICES_ID } from "@/lib/services";
-import { AUDIT_ID, CATALYST } from "@/lib/site";
+import { AUDIT_ID } from "@/lib/site";
 import { buildMetadata, graph, localBusinessSchema } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Grafynt, otomatisasi WhatsApp dan alur kerja untuk bisnis Indonesia",
+  title: "Grafynt, agensi GEO/AEO/SEO untuk bisnis Indonesia",
   description:
-    "Asisten WhatsApp AI, otomatisasi alur kerja, dan website yang mudah ditemukan mesin jawaban AI. Mulai dari audit gratis. Jakarta.",
+    "Supaya bisnis Anda yang disebut Google dan asisten AI saat calon pembeli mencari, bukan kompetitor. Audit visibilitas Rp 710.000. Jakarta.",
   path: "/id",
   locale: "id",
   absoluteTitle: true,
 });
 
 /**
- * Not a translation of the English home page. The Bahasa surface
- * targets local buying language, so the sections that earn their place
- * here are not the same ones that earn it there.
+ * Bukan terjemahan halaman depan versi Inggris. Permukaan Bahasa ini
+ * menyasar kata-kata yang benar-benar dipakai orang Indonesia saat
+ * mencari, jadi bagian yang layak tampil di sini tidak sama dengan
+ * yang layak tampil di sana.
  *
- * Language rule: otomatisasi MERINGANKAN pekerjaan tim, tidak pernah
+ * Aturan bahasa: otomatisasi MERINGANKAN pekerjaan tim, tidak pernah
  * MENGGANTIKAN orang.
  */
 export default async function IdHomePage() {
@@ -39,14 +40,14 @@ export default async function IdHomePage() {
       <JsonLd data={graph(localBusinessSchema())} />
 
       <Container className="py-16 md:py-20">
-        <Eyebrow>Otomatisasi AI · Jakarta</Eyebrow>
+        <Eyebrow>GEO · AEO · SEO · Jakarta</Eyebrow>
         <h1 className="font-display text-display-xl text-ink mt-5 max-w-[16ch]">
-          Chat pelanggan sudah masuk. Membalas semuanya yang tidak terkejar.
+          Calon pembeli Anda sedang mencari. Yang muncul nama kompetitor.
         </h1>
         <p className="text-lead text-ink-soft mt-6 max-w-[48ch]">
-          Grafynt memasang asisten WhatsApp AI dan otomatisasi alur kerja untuk
-          bisnis kecil dan menengah. Tujuannya meringankan pekerjaan tim Anda,
-          bukan menggantikannya.
+          Grafynt mengurus visibilitas bisnis kecil dan menengah di mesin
+          pencari dan di asisten AI seperti ChatGPT. Kami tidak bikin orang
+          jadi ingin beli, kami pastikan yang sudah ingin beli menemukan Anda.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
           <CtaButton locale="id" />
@@ -60,7 +61,14 @@ export default async function IdHomePage() {
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead title="Yang kami bangun." />
+        <SectionHead
+          title="Menangkap permintaan, bukan menciptakannya."
+          lede="Iklan dipakai untuk membuat orang ingin sesuatu. Itu mahal dan lambat terukur. Pekerjaan kami sebaliknya: orangnya sudah mau beli dan sedang mencari, tinggal memastikan yang ketemu itu Anda."
+        />
+      </Container>
+
+      <Container as="section" className="border-rule border-t py-16">
+        <SectionHead title="Yang kami kerjakan." />
         <ServiceRows
           services={SERVICES_ID}
           basePath="/id/layanan"
@@ -70,16 +78,16 @@ export default async function IdHomePage() {
 
       <Container as="section" className="border-rule border-t py-16">
         <SectionHead
-          eyebrow="Langkah"
-          title="Mulai gratis. Naik saat Anda lihat hasilnya sendiri."
-          lede="Tanpa kontrak jangka panjang. Anda bisa berhenti di langkah mana pun."
+          eyebrow="Urutan kerja"
+          title="Mulai dari audit. Naik saat Anda lihat hasilnya sendiri."
+          lede="Mulai dari audit. Tanpa kontrak jangka panjang, dan Anda bisa berhenti di langkah mana pun."
         />
         <Ladder locale="id" className="mt-10" />
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
         <SectionHead
-          eyebrow="Audit gratis"
+          eyebrow="Auditnya"
           title="Tiga temuan dan satu tes."
           lede="Kami jalankan dulu sebelum ngobrol, supaya pembicaraan pertama dimulai dari angka Anda, bukan dari penawaran kami."
         />
@@ -105,24 +113,24 @@ export default async function IdHomePage() {
         <SectionHead title="Siapa yang mengerjakan" />
         <div className="mt-6 max-w-[var(--gf-measure)]">
           <p className="text-body text-ink">
-            Grafynt dijalankan satu orang dari Jakarta. Sistemnya saya bangun
-            sendiri, itu sebabnya harga di situs ini ditulis terbuka, bukan
-            &ldquo;hubungi kami&rdquo;. Lebih cepat buat kita berdua kalau Anda
-            bisa menilai cocok atau tidak sebelum meeting.
+            Grafynt dijalankan satu orang dari Jakarta. Pekerjaannya saya
+            kerjakan sendiri, itu sebabnya harga di situs ini ditulis terbuka,
+            bukan &ldquo;hubungi kami&rdquo;. Lebih cepat buat kita berdua kalau
+            Anda bisa menilai cocok atau tidak sebelum meeting.
           </p>
           <p className="text-body text-ink mt-5">
-            {CATALYST.name} adalah proyek jangka panjangnya: sistem operasional
-            berbasis WhatsApp yang sedang dibangun. Belum dijual dan belum ada
-            harganya. Semua yang ada di halaman harga sudah bisa dikerjakan
-            sekarang.
+            Cakupannya sengaja sempit. Saya tidak mengelola iklan dan tidak
+            menjual awareness. Saya cari pertanyaan apa yang diketik calon
+            pembeli di pasar Anda, lalu memastikan nama Anda yang muncul saat
+            pertanyaan itu ditanyakan.
           </p>
         </div>
       </Container>
 
       <ClosingCta
         locale="id"
-        heading="Tiga temuan dan satu tes. Gratis, tanpa jualan."
-        lede="Kami cek apakah mesin jawaban AI menyebut bisnis Anda, apakah deskripsinya benar, dan siapa yang justru disebut. Sekitar tiga hari."
+        heading="Tiga temuan dan satu tes, sekitar tiga hari."
+        lede="Kami cek apakah Google dan asisten AI menyebut bisnis Anda, apakah deskripsinya benar, dan siapa yang justru disebut. Rp 710.000, dan gratis kalau lanjut ambil website."
       />
     </>
   );

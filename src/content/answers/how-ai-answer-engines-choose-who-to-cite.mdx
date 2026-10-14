@@ -1,0 +1,99 @@
+export const meta = {
+  question: "How do AI answer engines choose which businesses to cite?",
+  title: "How AI answer engines choose who to cite",
+  description:
+    "AI assistants retrieve live pages before answering. What decides who gets named: retrievability, answering directly, and whether your listings corroborate.",
+  lead: "They retrieve live pages at the moment they are asked, then quote whichever source answers the question most directly and is corroborated elsewhere. So citation favours pages that answer outright rather than introduce themselves, that a crawler can read without JavaScript, and whose claims about a business match what every other listing says.",
+  published: "2026-10-15",
+  updated: "2026-10-15",
+  faqs: [
+    {
+      question: "Does the model already know my business from training?",
+      answer:
+        "Assume not, and do not build on it. Modern assistants answer buying-intent questions by searching the web at the moment they are asked, because a training set cannot know your current hours or prices. What is retrievable today decides what gets said about you today.",
+    },
+    {
+      question: "Is being cited the same as ranking first?",
+      answer:
+        "No, and the gap is where most of the opportunity sits. Ranking is a position in a list; citation is being the text an assistant lifts. A page can rank well and never be quoted because it explains what a business is instead of answering the question asked.",
+    },
+    {
+      question: "Why would an assistant name a smaller competitor over me?",
+      answer:
+        "Usually because their page answers the exact question in a self-contained paragraph and yours does not, or because their name, services and areas are described identically everywhere while yours vary by listing. Neither is about company size.",
+    },
+    {
+      question: "How long before changes show up?",
+      answer:
+        "Retrieval-based answers can change within days of a page changing, because nothing has to be retrained. Answers that lean on an index or a cached profile move more slowly, usually weeks. We measure against the audit baseline rather than guess.",
+    },
+  ],
+};
+
+## The short version
+
+- Assistants mostly do not answer from memory. They run a search, read what comes back, and write a reply from it. That mechanism is retrieval-augmented generation, and it is why this is a solvable problem rather than a mysterious one.
+- Three things decide whether you are the source quoted: whether your page can be retrieved, whether it answers the question outright, and whether everything else written about you agrees with it.
+- Directness beats volume. One page that answers one question completely outperforms a long page that covers six topics adequately.
+- Corroboration beats assertion. A claim repeated identically across your site, your Google Business Profile and your directory listings is treated very differently from the same claim made once.
+- Being invisible is rarely a content shortage. It is usually inconsistency, or a page a crawler cannot read.
+
+## How the mechanism actually works
+
+When you ask an assistant for a supplier, a clinic or a contractor, it does not consult a stored list of businesses. It issues one or more search queries through a live web-search API, receives a set of pages, reads them, and composes an answer from what it found. Some of those pages get named. Most do not.
+
+That has three consequences worth internalising.
+
+**Your current pages are the input.** Not your reputation, not how long you have traded, not what you said last year. The pages that can be fetched right now are the whole evidence base for whatever the assistant says about you.
+
+**The query is not your keyword.** The assistant rewrites a human request into one or more searches of its own. Someone typing "cheapest place near me to fix a cracked screen fast" may generate a search for a service phrase you have never put on your site. The questions worth targeting are the ones buyers ask, not the ones you would use to describe yourself.
+
+**Only quotable text gets quoted.** The assistant needs a passage it can compress into a sentence without risking being wrong. A paragraph that answers a question completely, on its own, with no surrounding context required, is the ideal unit. A page that sets up context for three paragraphs before getting to the point supplies nothing liftable.
+
+## The three things that decide it
+
+**Retrievability.** If a crawler cannot read the page, nothing else matters. Content that only appears after JavaScript runs, content behind an interaction, and pages excluded by robots rules are all invisible to a surprising amount of retrieval. The same goes for a page that takes too long to return. This is unglamorous and it is the first thing to check.
+
+**Directness.** The page has to answer the question asked, early, in plain words. Not approach the question. Not provide background first. One question per page, answered in the first paragraph, then supported. This is the whole reason the pages on this site are shaped the way they are.
+
+**Corroboration.** This is the one most businesses get wrong without knowing. An assistant weighing whether to name you is implicitly asking whether the evidence agrees with itself. If your website calls a service one thing, your Google Business Profile calls it another, and a directory listing calls it a third, there is no consistent fact to state. A competitor whose three surfaces say the same thing in the same words is a safer source, so it gets named instead.
+
+That is why keyword consistency is not a tidiness exercise. One service, one phrase, everywhere. It is the cheapest visibility work available to most businesses and almost nobody does it.
+
+## What this means in practice
+
+| Instinct | What actually earns the citation |
+| --- | --- |
+| Write more pages | Write one page per question buyers actually ask |
+| Open with positioning | Answer in the first paragraph, support it afterwards |
+| Vary the wording so it reads naturally | Use one fixed phrase per service, everywhere |
+| Add schema describing the business | Add schema describing text visible on the page |
+| Make the site visually impressive | Make it readable with JavaScript disabled |
+| Target high-volume keywords | Target buying-intent questions, however narrow |
+| Chase the biggest competitor | Find the questions nobody in your market has answered |
+
+## What it costs
+
+| What | Price | Timeline |
+| --- | --- | --- |
+| Visibility audit | Rp 710.000, free with a website build | ~3 days |
+| Competitor analysis | Rp 1.250.000, covers 3–5 competitors | ~1 week |
+| Google Business Profile optimisation | Rp 1.520.000 per month, minimum 3 months | 1–2 weeks to set up |
+| Workflow automations | Quoted per project, add-on only | 1–2 weeks |
+| Website, new or revamped | from Rp 7.550.000 | 2–3 weeks |
+
+Two bundles exist, priced below the sum of their parts: website plus audit at Rp 7.550.000, which is the audit included free with a build, and everything except automation at Rp 8.540.000 one-time plus the Rp 1.520.000 monthly profile fee. Only the one-time work is discounted in a bundle; the monthly fee is the same either way.
+
+The website figure covers a revamp or company profile up to about five pages, and a custom multi-page build is quoted per project. The profile work is monthly because a Google Business Profile does not stay fixed: hours change, categories get reshuffled, and reviews and questions keep arriving. A one-off cleanup decays within months, so it is not sold that way.
+
+The audit is where everything starts: whether search engines and AI assistants name your business for buying-intent questions, whether they describe it correctly, and which businesses get named instead of you, by name. Plus a retrieval and consistency test across your site, your Google Business Profile and your other listings. About three days.
+
+## When this is a bad idea to chase
+
+Do not chase citation for questions that do not precede a purchase. Being named as a source on a general-interest topic is pleasant and sells nothing. The questions worth owning are the ones someone asks in the last few minutes before they choose a supplier.
+
+Do not optimise for one assistant. They differ in how they retrieve, and tuning to the quirks of whichever one you personally use is how you end up with a page that works in one place and nowhere else. Answer the question properly and you are legible to all of them.
+
+Do not add schema to describe text you are not willing to show a reader. Markup describing hidden content is a manual-action risk, not a shortcut, and it is a bad trade for a short-term gain.
+
+Do not start here if nobody can find you in ordinary search either. Classic indexing and AI citation share most of their foundations. Fix the foundations once and both improve; chase the newer acronym alone and you will pay twice.

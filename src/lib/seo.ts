@@ -223,15 +223,15 @@ export function articleSchema(input: {
   };
 }
 
-/** The free audit, as a bookable offer. One CTA, one schema. */
+/** The audit, as a bookable offer. One CTA, one schema. */
 export function auditOfferSchema() {
   return {
     "@type": "Offer",
     "@id": `${SITE.url}/#audit-offer`,
-    name: "GEO/AEO + WhatsApp audit",
+    name: "GEO/AEO/SEO visibility audit",
     description:
-      "Whether AI answer engines name your business, whether they describe it correctly, which competitors get named instead, plus a WhatsApp response-speed test.",
-    price: "0",
+      "Whether search engines and AI assistants name your business, whether they describe it correctly, which competitors get named instead, plus a retrieval and keyword-consistency test.",
+    price: "710000",
     priceCurrency: "IDR",
     availability: "https://schema.org/InStock",
     url: CAL_URL,

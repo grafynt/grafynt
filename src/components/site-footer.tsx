@@ -61,14 +61,22 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "id" }) {
 const copy = {
   en: {
     tagline:
-      "WhatsApp agents, workflow automation, and websites built to be found. Jakarta.",
+      "GEO, AEO and SEO for demand capture. We make you the answer the buyer already searching for you gets. Jakarta.",
     columns: [
       {
         heading: "Services",
         links: [
-          { href: "/services/whatsapp-ai-agent", label: "WhatsApp AI agent" },
-          { href: "/services/workflow-automation", label: "Workflow automation" },
-          { href: "/services/ai-websites", label: "AI-built websites" },
+          {
+            href: "/services/ai-search-visibility-audit",
+            label: "Visibility audit",
+          },
+          {
+            href: "/services/google-business-profile-optimization",
+            label: "Google Business Profile",
+          },
+          { href: "/services/competitor-analysis", label: "Competitor analysis" },
+          { href: "/services/workflow-automation", label: "Workflow automations" },
+          { href: "/services/websites", label: "Websites" },
           { href: "/pricing", label: "Pricing" },
         ],
       },
@@ -92,20 +100,28 @@ const copy = {
   },
   id: {
     tagline:
-      "Asisten WhatsApp, otomatisasi alur kerja, dan website yang mudah ditemukan. Jakarta.",
+      "GEO, AEO dan SEO untuk menangkap permintaan yang sudah ada. Supaya Anda yang disebut, bukan kompetitor. Jakarta.",
     columns: [
       {
         heading: "Layanan",
         links: [
-          { href: "/id/layanan/whatsapp-ai-agent", label: "Asisten WhatsApp AI" },
+          { href: "/id/layanan/audit-visibilitas-ai", label: "Audit visibilitas" },
+          {
+            href: "/id/layanan/optimasi-google-bisnis-profil",
+            label: "Google Bisnis Profil",
+          },
+          { href: "/id/layanan/analisis-kompetitor", label: "Analisis kompetitor" },
+          {
+            href: "/id/layanan/otomatisasi-alur-kerja",
+            label: "Otomatisasi alur kerja",
+          },
+          { href: "/id/layanan/jasa-pembuatan-website", label: "Website" },
           { href: "/id/harga", label: "Harga" },
         ],
       },
       {
         heading: "Jawaban",
-        links: [
-          { href: "/id/jawaban", label: "Semua jawaban" },
-        ],
+        links: [{ href: "/id/jawaban", label: "Semua jawaban" }],
       },
       {
         heading: "English",

@@ -49,8 +49,8 @@ export function CtaButton({
 }
 
 const defaultLabel = {
-  en: { cal: "Book the free audit", whatsapp: "Message us on WhatsApp" },
-  id: { cal: "Minta audit gratis", whatsapp: "Chat via WhatsApp" },
+  en: { cal: "Book the audit", whatsapp: "Message us on WhatsApp" },
+  id: { cal: "Minta audit", whatsapp: "Chat via WhatsApp" },
 } as const;
 
 function WhatsAppMark() {

@@ -116,13 +116,13 @@ const copy = {
   en: {
     eyebrow: "Answer",
     faqHeading: "Common questions",
-    bio: "founder of Grafynt. Builds WhatsApp agents and workflow automation for small and medium businesses, from Jakarta.",
+    bio: "founder of Grafynt. Works on search and AI answer-engine visibility for small and medium businesses, from Jakarta.",
     updated: "Last updated",
   },
   id: {
     eyebrow: "Jawaban",
     faqHeading: "Pertanyaan umum",
-    bio: "pendiri Grafynt. Membangun asisten WhatsApp dan otomatisasi alur kerja untuk bisnis kecil dan menengah, dari Jakarta.",
+    bio: "pendiri Grafynt. Mengurus visibilitas bisnis kecil dan menengah di mesin pencari dan asisten AI, dari Jakarta.",
     updated: "Terakhir diperbarui",
   },
 } as const;

@@ -13,7 +13,7 @@ import { ClosingCta } from "@/components/closing-cta";
 import { homeThread } from "@/lib/threads";
 import { loadAnswers } from "@/lib/answers";
 import { SERVICES_EN } from "@/lib/services";
-import { CATALYST, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import {
   auditOfferSchema,
   buildMetadata,
@@ -22,9 +22,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Grafynt, AI automation for small and medium businesses",
+  title: "Grafynt, a GEO/AEO/SEO agency for demand capture",
   description:
-    "WhatsApp AI agents, n8n workflow automation, and websites built to be found by AI answer engines. Jakarta-based, working with teams in six markets.",
+    "We make search engines and AI assistants name your business to the people already looking for what you sell. Audits, Google Business Profile, competitor analysis, websites.",
   path: "/",
   absoluteTitle: true,
 });
@@ -44,14 +44,15 @@ export default async function HomePage() {
 
       <Container className="grid items-center gap-12 py-16 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
-          <Eyebrow>AI automation · Jakarta</Eyebrow>
+          <Eyebrow>GEO · AEO · SEO · Jakarta</Eyebrow>
           <h1 className="font-display text-display-xl text-ink mt-5 max-w-[15ch]">
-            Your customers already message you. Answering every one is the part
-            that doesn&rsquo;t scale.
+            Someone is searching for what you sell right now. They are being
+            shown a competitor.
           </h1>
           <p className="text-lead text-ink-soft mt-6 max-w-[42ch]">
-            WhatsApp agents, workflow automation, and websites built to be
-            found. Jakarta-based, working across six markets.
+            Grafynt works on demand capture, not demand generation. We make
+            search engines and AI assistants name you to the buyers who are
+            already looking.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <CtaButton />
@@ -68,7 +69,14 @@ export default async function HomePage() {
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
-        <SectionHead title="Three things, done properly." />
+        <SectionHead
+          title="Capture, not generation."
+          lede="Demand generation spends money teaching people to want something. Demand capture spends it on being the answer they get when they already do. The second is cheaper, it is measurable, and for most small businesses it is the one left undone."
+        />
+      </Container>
+
+      <Container as="section" className="border-rule border-t py-16">
+        <SectionHead title="Five things, done properly." />
         <ServiceRows
           services={SERVICES_EN}
           basePath="/services"
@@ -78,16 +86,16 @@ export default async function HomePage() {
 
       <Container as="section" className="border-rule border-t py-16">
         <SectionHead
-          eyebrow="The ladder"
-          title="Four steps, and each one exists to make the next easier to decide."
-          lede="Start free. Nothing here needs a long-term contract, and you can stop at any step."
+          eyebrow="The order of work"
+          title="Five steps, and each one exists to make the next easier to decide."
+          lede="Start with the audit. Nothing here needs a long-term contract, and you can stop at any step."
         />
         <Ladder className="mt-10" />
       </Container>
 
       <Container as="section" className="border-rule border-t py-16">
         <SectionHead
-          eyebrow="The free audit"
+          eyebrow="The audit"
           title="Three findings and a test."
           lede="We run it before we talk, so the first conversation starts with your numbers rather than our pitch."
         />
@@ -110,16 +118,17 @@ export default async function HomePage() {
         <SectionHead title={SITE.founder.name} />
         <div className="mt-6 max-w-[var(--gf-measure)]">
           <p className="text-body text-ink">
-            Grafynt is one person in Jakarta. I build the systems myself, which
-            is why the pricing on this site is a real number rather than a
-            conversation, and why the audit is free. It is faster for both of
-            us if you can see the problem before you decide anything.
+            Grafynt is one person in Jakarta. I do the work myself, which is
+            why the pricing on this site is a real number rather than a
+            conversation. The audit is cheap on purpose, and free if a website
+            build follows, because it is faster for both of us if you can see
+            the problem before you decide anything.
           </p>
           <p className="text-body text-ink mt-5">
-            {CATALYST.name} is the longer project: a WhatsApp-native operating
-            system that generalises what every automation build has in common.
-            It is in development and not for sale yet. Everything on the pricing
-            page is available today.
+            The work is narrow on purpose. I do not run ads, I do not build
+            funnels, and I will not sell you awareness. I find out which
+            buying-intent questions your market is asking, then make you the
+            business that gets named when they are asked.
           </p>
           <p className="text-body-s text-ink-soft mt-5">
             <Link
@@ -133,8 +142,8 @@ export default async function HomePage() {
       </Container>
 
       <ClosingCta
-        heading="Three findings and a test. No cost, no pitch."
-        lede="I check whether AI answer engines name your business, whether they describe it correctly, and who gets named instead. About three days."
+        heading="Three findings and a test, in about three days."
+        lede="I check whether search engines and AI assistants name your business, whether they describe it correctly, and who gets named instead. Rp 710.000, and free if a website build follows."
       />
     </>
   );

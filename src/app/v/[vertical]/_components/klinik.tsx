@@ -4,32 +4,41 @@ import { CtaButton } from "@/components/cta-button";
 import { ClosingCta } from "@/components/closing-cta";
 import { WhatsAppThread } from "@/components/whatsapp-thread";
 import { klinikThread } from "@/lib/threads";
-import { CATALYST, LADDER } from "@/lib/site";
+import { BUNDLES, LADDER } from "@/lib/site";
 
 /**
- * Ported from grafynt-klinik-kecantikan.html.
+ * The klinik offer page.
  *
- * Palette, copy, section order, the WhatsApp thread and the pricing
- * cards are preserved. Not one hex value appears in this file, every
- * colour resolves through the `--gf-*` contract, which
+ * Palette, section order, the WhatsApp thread and the pricing cards are
+ * preserved from the original port. Not one hex value appears in this
+ * file, every colour resolves through the `--gf-*` contract, which
  * [data-skin="klinik"] in src/styles/skins.css rebinds to porcelain,
  * wine and champagne. The shared WhatsAppThread, CtaButton and
  * ClosingCta components are the same ones the English site uses. That
  * is the proof: a vertical is a skin, not a fork.
  *
- * Five deliberate changes from the source:
- *  1. Langkah 02 is Rp 5.300.000 (was 3.500.000, that number is dead)
- *  2. Langkah 03 Catalyst is Rp 1.700.000 / bulan (was 1.250.000),
- *     read from CATALYST.verticalPrice
- *  3. No hover lift on the leak cards, border and opacity only
- *  4. No scroll reveal; the source faded ~20 elements in on scroll
- *  5. The FAQ is <details open>: text in the DOM, expanded by default,
- *     works with JavaScript disabled
+ * The offer is the public one, narrowed to one audience: a clinic is a
+ * local-intent business, so the Google Business Profile row carries more
+ * of the weight here than it does on the broad site. Every number is
+ * read from LADDER and BUNDLES, so this page cannot quote a price the
+ * public site contradicts.
  *
- * The nav also loses its backdrop-blur for a solid surface.
+ * Four deliberate departures from the source document:
+ *  1. No hover lift on the diagnosis cards, border and opacity only
+ *  2. No scroll reveal; the source faded ~20 elements in on scroll
+ *  3. The FAQ is <details open>: text in the DOM, expanded by default,
+ *     works with JavaScript disabled
+ *  4. The nav loses its backdrop-blur for a solid surface
  */
 
-const automation = LADDER.find((r) => r.name === "Automation build")!;
+const audit = LADDER.find((r) => r.name === "Visibility audit")!;
+const profile = LADDER.find(
+  (r) => r.name === "Google Business Profile optimisation",
+)!;
+const websiteBundle = BUNDLES.find((b) => b.name === "Website + audit")!;
+const fullBundle = BUNDLES.find(
+  (b) => b.name === "Everything except automation",
+)!;
 
 export function KlinikPage() {
   return (
@@ -48,11 +57,11 @@ export function KlinikPage() {
           channel="whatsapp"
           heading={
             <>
-              Berhenti kehilangan booking.{" "}
-              <em className="italic">Mulai dari audit gratis.</em>
+              Berhenti kalah sebelum ditemukan.{" "}
+              <em className="italic">Mulai dari auditnya.</em>
             </>
           }
-          lede="Kami tunjukkan di mana klinik Anda bocor, lalu Anda putuskan langkah berikutnya."
+          lede="Kami tunjukkan dulu klinik mana yang disebut menggantikan Anda, baru Anda putuskan langkah berikutnya."
         />
       </main>
       <KlinikFooter />
@@ -72,7 +81,7 @@ function KlinikNav() {
         <CtaButton
           locale="id"
           channel="whatsapp"
-          label="Minta Audit Gratis"
+          label="Minta Audit"
           className="hidden px-4 py-2.5 sm:inline-flex"
         />
       </Container>
@@ -89,26 +98,22 @@ function Hero() {
       <div>
         <Eyebrow>Untuk Klinik Kecantikan &amp; Estetika</Eyebrow>
         <h1 className="font-display text-display-xl text-ink mt-5 max-w-[15ch]">
-          Setiap chat yang telat dibalas adalah{" "}
-          <em className="text-accent italic">booking yang hilang.</em>
+          Calon pasien sudah mencari.{" "}
+          <em className="text-accent italic">Yang disebut klinik sebelah.</em>
         </h1>
         <p className="text-lead text-ink-soft mt-6 max-w-[34ch]">
-          Grafynt memasang asisten WhatsApp AI untuk klinik Anda, balas calon
-          pasien dalam hitungan detik, atur jadwal treatment otomatis, dan
-          pangkas no-show. Tanpa nambah admin.
+          Grafynt mengurus visibilitas klinik Anda di Google dan di asisten AI
+          seperti ChatGPT. Bukan bikin orang jadi ingin perawatan, tapi
+          memastikan yang sudah mau cari justru menemukan klinik Anda.
         </p>
         <div className="mt-8">
-          <CtaButton
-            locale="id"
-            channel="whatsapp"
-            label="Minta Audit Gratis"
-          />
+          <CtaButton locale="id" channel="whatsapp" label="Minta Audit" />
         </div>
         <p className="text-body-s text-ink-soft mt-5">
           <strong className="text-ink font-semibold">
-            Gratis, tanpa komitmen.
+            {audit.price}, sekitar 3 hari.
           </strong>{" "}
-          Kami tunjukkan di mana booking Anda bocor dulu.
+          Gratis kalau sekalian ambil website.
         </p>
       </div>
 
@@ -119,19 +124,19 @@ function Hero() {
 
 const LEAKS = [
   {
-    tag: "Celah 01, Kecepatan",
-    title: "Balasan lambat",
-    body: "Calon pasien tanya “masih ada slot, Kak?” jam 9 malam. Dibalas besok siang. Dia sudah booking di klinik sebelah yang membalas duluan.",
-  },
-  {
-    tag: "Celah 02, Kehadiran",
-    title: "No-show",
-    body: "Pasien lupa jadwal, kursi tindakan kosong, jam terapis terbuang. Tanpa reminder otomatis, satu no-show sama dengan satu slot revenue hangus.",
-  },
-  {
-    tag: "Celah 03, Visibilitas",
+    tag: "Celah 01, Visibilitas",
     title: "Tak muncul saat dicari",
-    body: "Saat calon pasien tanya ChatGPT atau Google “klinik kecantikan terbaik di kota saya”, nama Anda tak muncul. Yang muncul justru kompetitor.",
+    body: "Calon pasien tanya ChatGPT atau Google “klinik kecantikan terbaik di kota saya”. Nama Anda tak muncul. Yang muncul justru kompetitor, dan dari situ dia langsung chat.",
+  },
+  {
+    tag: "Celah 02, Konsistensi",
+    title: "Informasi beda-beda",
+    body: "Website menyebut satu nama treatment, Google Bisnis Profil menyebut nama lain, listing di direktori lain lain lagi. Tidak ada yang saling menguatkan, jadi mesin memilih klinik yang lebih jelas.",
+  },
+  {
+    tag: "Celah 03, Profil lokal",
+    title: "Google Bisnis Profil terbengkalai",
+    body: "Kategori belum pas, daftar treatment belum diisi, pertanyaan dan ulasan dibiarkan. Padahal justru di situ niat beli lokal paling tinggi, dan itu teks yang paling mudah ditarik mesin.",
   },
 ];
 
@@ -142,11 +147,11 @@ function Leaks() {
         <div className="max-w-[40rem]">
           <Eyebrow>Diagnosa</Eyebrow>
           <h2 className="font-display text-display-l text-ink mt-4">
-            Di mana booking Anda bocor
+            Kenapa klinik Anda tidak ketemu
           </h2>
           <p className="text-body text-ink-soft mt-4">
-            Bukan karena treatment kurang bagus. Biasanya karena tiga celah
-            operasional yang diam-diam menggerus pendapatan setiap hari.
+            Bukan karena treatment kurang bagus. Biasanya karena tiga celah yang
+            membuat klinik Anda sulit dibaca mesin pencari dan asisten AI.
           </p>
         </div>
 
@@ -175,26 +180,26 @@ const STEPS = [
   {
     n: "01",
     title: "Audit",
-    pill: "Gratis",
+    pill: audit.price!,
     free: true,
-    body: "Kami petakan kebocoran Anda: seberapa cepat WhatsApp dibalas, berapa DM yang tak terkonversi jadi booking, dan apakah klinik Anda muncul saat dicari di AI & Google. Hasilnya laporan ringkas dengan angka, bukan tebakan.",
-    side: "±3 hari · tanpa biaya",
+    body: "Kami ukur posisi klinik Anda sekarang: apakah ChatGPT, Gemini, Perplexity dan AI Overviews Google menyebut klinik Anda saat orang bertanya dengan niat perawatan, apakah deskripsinya benar, dan klinik mana yang justru disebut, lengkap dengan namanya. Hasilnya laporan dengan angka, bukan tebakan.",
+    side: `±3 hari · gratis kalau ambil website`,
   },
   {
     n: "02",
-    title: "Otomasi",
-    pill: "Dibangun untuk Anda",
+    title: "Perbaikan",
+    pill: "Dikerjakan untuk Anda",
     free: false,
-    body: "Kami bangun asisten WhatsApp AI khusus klinik Anda, hafal daftar treatment, harga, dan jam praktik. Balas instan 24/7 dalam Bahasa, booking & reschedule otomatis, plus reminder anti no-show. Terpasang, bukan template.",
-    side: "±1–2 minggu",
+    body: "Website dirombak atau dibuat baru, satu halaman untuk satu pertanyaan calon pasien, ditulis supaya bisa dikutip mesin. Google Bisnis Profil dibenahi: kategori, daftar treatment, jam praktik, area layanan. Satu istilah per treatment, dipakai sama persis di semua tempat.",
+    side: "±2–3 minggu",
   },
   {
     n: "03",
-    title: CATALYST.name,
-    pill: "Platform",
+    title: "Dijaga",
+    pill: "Bulanan",
     free: false,
-    body: "Sistem operasional WhatsApp yang terus berjalan. Kelola membership, treatment, cabang, dan performa dari satu dashboard. Langganan bulanan, makin lama makin pintar karena belajar dari data percakapan klinik Anda sendiri.",
-    side: "langganan bulanan",
+    body: "Google Bisnis Profil bukan sekali atur lalu ditinggal. Jam buka berubah, kategori digeser Google, ulasan dan pertanyaan terus masuk dan harus dijawab dengan istilah yang sama. Setiap bulan kami jaga konsistensinya dan ukur ulang hasilnya terhadap audit awal.",
+    side: `${profile.price} / bulan · min. 3 bulan`,
   },
 ];
 
@@ -204,11 +209,11 @@ function Steps() {
       <div className="max-w-[40rem]">
         <Eyebrow>Cara Kerja</Eyebrow>
         <h2 className="font-display text-display-l text-ink mt-4">
-          Tiga langkah, dari kebocoran ke sistem
+          Tiga langkah, dari tidak terlihat ke disebut
         </h2>
         <p className="text-body text-ink-soft mt-4">
-          Kami tidak minta Anda langsung berlangganan. Mulai dari audit, baru
-          naik saat Anda lihat hasilnya sendiri.
+          Kami tidak minta Anda langsung ambil semuanya. Mulai dari audit, baru
+          naik saat Anda lihat angkanya sendiri.
         </p>
       </div>
 
@@ -252,28 +257,28 @@ function Steps() {
 
 const FEATURES = [
   {
-    title: "Balas instan 24/7",
-    body: "Chat masuk tengah malam tetap terjawab dalam detik. Tidak ada lagi lead dingin karena telat.",
+    title: "Panel pertanyaan AI",
+    body: "Pertanyaan calon pasien dijalankan di ChatGPT, Gemini, Perplexity dan AI Overviews, lalu dicatat siapa yang disebut.",
   },
   {
-    title: "Booking otomatis",
-    body: "Cek slot, jadwalkan, dan reschedule treatment langsung dari chat, tersinkron ke kalender klinik.",
+    title: "Nama kompetitor, terang-terangan",
+    body: "Klinik mana yang disebut menggantikan Anda, dan apa yang ada di halaman mereka tapi tidak ada di halaman Anda.",
   },
   {
-    title: "Reminder anti no-show",
-    body: "Pengingat otomatis H-1 dan hari-H. Kursi tindakan terisi, revenue tidak hangus.",
+    title: "Satu istilah per treatment",
+    body: "Dipakai sama persis di website, Google Bisnis Profil, dan listing lain. Konsistensi inilah yang bikin klinik bisa dikutip.",
   },
   {
-    title: "Jawab FAQ treatment",
-    body: "Harga, durasi, perawatan pasca-tindakan, dijawab akurat dan seragam, tanpa capek mengetik ulang.",
+    title: "Halaman per pertanyaan",
+    body: "Satu halaman menjawab satu pertanyaan calon pasien secara tuntas, karena itulah satuan yang ditarik dan dikutip mesin.",
   },
   {
-    title: "Follow-up lead",
-    body: "Calon pasien yang cuma nanya lalu hilang, disapa kembali otomatis di waktu yang pas.",
+    title: "Profil lokal dibenahi",
+    body: "Kategori, daftar treatment, jam praktik, area layanan, ulasan dan Q&A, disusun untuk niat beli lokal.",
   },
   {
-    title: "Bahasa yang natural",
-    body: "Membalas dalam Bahasa Indonesia yang luwes, bisa menyesuaikan gaya dan bahasa daerah pelanggan Anda.",
+    title: "Diukur ulang, bukan diklaim",
+    body: "Setelah perubahan stabil, panel yang sama dijalankan lagi dan dibandingkan dengan audit awal.",
   },
 ];
 
@@ -287,11 +292,11 @@ function Features() {
             Yang Dikerjakan
           </p>
           <h2 className="font-display text-display-l text-on-dark mt-4">
-            Satu asisten, kerja admin semalaman
+            Pekerjaan yang membosankan, dan itu memang intinya
           </h2>
           <p className="text-body text-on-dark/75 mt-4">
-            Semua percakapan berulang yang bikin tim front-office kewalahan:
-            ditangani otomatis, konsisten, tanpa lelah.
+            Tidak ada trik. Yang kami kerjakan hal-hal kecil yang bikin klinik
+            Anda bisa dibaca, dikutip, dan dipercaya mesin pencari.
           </p>
         </div>
 
@@ -315,18 +320,18 @@ function Features() {
 const WHY = [
   {
     n: "01",
-    title: "WhatsApp-native, bukan chatbot web",
-    body: "Pasien Anda hidup di WhatsApp, bukan di widget pojok website yang diabaikan. Kami pasang di kanal tempat mereka benar-benar bertanya dan booking.",
+    title: "Menangkap, bukan menciptakan permintaan",
+    body: "Kami tidak jualan awareness dan tidak mengelola iklan. Orangnya sudah mau cari klinik, tinggal memastikan yang ketemu itu Anda. Itu bisa diukur hari ini.",
   },
   {
     n: "02",
-    title: "Paham konteks & bahasa lokal",
-    body: "Bukan terjemahan kaku dari template luar. Nuansa, sopan-santun, dan istilah treatment terasa natural buat pasien Indonesia.",
+    title: "Niat beli lokal, dalam Bahasa",
+    body: "Calon pasien mencari dengan kata-kata mereka sendiri, bukan istilah medis di brosur. Kami targetkan kata yang benar-benar diketik, per kota dan per area.",
   },
   {
     n: "03",
-    title: "Data pasien tetap milik Anda",
-    body: "Percakapan dan data tersimpan di infrastruktur privat klinik Anda, aman, dan menjadi aset yang makin bernilai seiring waktu.",
+    title: "Angkanya ditulis terbuka",
+    body: "Harga di halaman ini sama dengan harga di grafynt.com. Tidak ada angka khusus yang muncul cuma di presentasi.",
   },
 ];
 
@@ -339,8 +344,8 @@ function Why() {
       <div>
         <Eyebrow>Kenapa Grafynt</Eyebrow>
         <h2 className="font-display text-display-l text-ink mt-4">
-          Dibuat untuk cara Indonesia berbelanja, lewat{" "}
-          <em className="text-accent italic">WhatsApp,</em> dalam Bahasa.
+          Dibuat untuk cara orang Indonesia{" "}
+          <em className="text-accent italic">mencari,</em> dalam Bahasa.
         </h2>
       </div>
 
@@ -365,44 +370,45 @@ function Why() {
 
 const PLANS = [
   {
-    name: "Langkah 01",
-    price: "Gratis",
-    per: "tanpa komitmen",
-    desc: "Audit kebocoran booking klinik Anda.",
+    name: "Audit saja",
+    price: audit.price!,
+    per: "sekali bayar",
+    desc: "Ukur posisi klinik Anda sekarang, tanpa komitmen lanjut.",
     feature: false,
     flag: null as string | null,
     items: [
-      "Analisa kecepatan balas WhatsApp",
-      "Cek visibilitas di AI & Google",
-      "Laporan + rekomendasi ringkas",
+      "Panel pertanyaan di 4 mesin AI",
+      "Cek posisi di pencarian biasa",
+      "Nama klinik yang disebut menggantikan Anda",
+      "Laporan + rekomendasi berurutan",
     ],
   },
   {
-    name: "Langkah 02",
-    price: automation.price!,
-    per: "sekali pasang",
-    desc: "Asisten WhatsApp AI, terpasang & dilatih untuk klinik Anda.",
+    name: "Website + audit",
+    price: websiteBundle.price,
+    per: "sekali bayar",
+    desc: "Auditnya gratis, karena auditlah yang menentukan isi websitenya.",
     feature: true,
     flag: "Paling dipilih",
     items: [
-      "Balas instan 24/7 dalam Bahasa",
-      "Booking & reschedule otomatis",
-      "Reminder anti no-show",
-      "Hafal treatment, harga & jadwal",
+      "Semua isi paket audit",
+      "Website dirombak atau dibuat baru",
+      "Satu halaman per pertanyaan pasien",
+      "Satu istilah per treatment, konsisten",
     ],
   },
   {
-    name: "Langkah 03",
-    price: CATALYST.verticalPrice,
-    per: CATALYST.verticalPer,
-    desc: `Platform ${CATALYST.name}, sistem yang terus berjalan & berkembang.`,
+    name: "Lengkap",
+    price: fullBundle.price,
+    per: `sekali bayar + ${fullBundle.recurring} / bulan`,
+    desc: "Audit, website, analisis kompetitor, dan Google Bisnis Profil yang dijaga tiap bulan.",
     feature: false,
     flag: null,
     items: [
-      "Dashboard operasional & performa",
-      "Kelola membership & cabang",
-      "Maintenance, update & support",
-      "Makin pintar dari data Anda",
+      "Semua isi paket website",
+      "Analisis 3–5 klinik kompetitor",
+      "Google Bisnis Profil dibenahi & dijaga",
+      "Diukur ulang terhadap audit awal",
     ],
   },
 ];
@@ -414,11 +420,11 @@ function Pricing() {
         <div className="max-w-[40rem]">
           <Eyebrow>Investasi</Eyebrow>
           <h2 className="font-display text-display-l text-ink mt-4">
-            Mulai gratis. Naik saat Anda lihat hasilnya.
+            Mulai dari audit. Naik saat Anda lihat angkanya.
           </h2>
           <p className="text-body text-ink-soft mt-4">
-            Tanpa kontrak jangka panjang. Anda bisa berhenti di langkah mana
-            pun.
+            Tanpa kontrak jangka panjang. Yang bulanan hanya Google Bisnis
+            Profil, minimum 3 bulan, dan itu tidak didiskon di paket mana pun.
           </p>
         </div>
 
@@ -488,8 +494,9 @@ function Pricing() {
         </ul>
 
         <p className="text-note text-ink-soft mt-7 font-mono">
-          * Angka di atas contoh paket standar dan bisa disesuaikan dengan skala
-          klinik Anda.
+          * Website di atas mencakup perombakan atau company profile sampai
+          sekitar lima halaman. Website custom multi-halaman dihitung per
+          proyek.
         </p>
       </Container>
     </section>
@@ -498,20 +505,20 @@ function Pricing() {
 
 const FAQS = [
   {
-    q: "Apakah ini menggantikan admin saya?",
-    a: "Tidak. Asisten menangani chat berulang yang menyita waktu, sapaan, harga, cek slot, reminder. Admin Anda jadi punya ruang untuk fokus ke pasien yang butuh sentuhan manusia dan penjualan yang lebih bernilai.",
+    q: "Bedanya dengan jasa SEO biasa?",
+    a: "Pekerjaannya satu keluarga, cuma lebih ketat. SEO soal dapat peringkat di mesin pencari. Yang kami kerjakan juga memastikan klinik Anda jadi teks yang dikutip asisten AI, karena ChatGPT dan sejenisnya tidak menjawab dari hafalan, mereka menarik halaman saat itu juga lalu mengutip yang paling jelas menjawab.",
   },
   {
-    q: "Data pasien saya aman?",
-    a: "Ya. Percakapan dan data pasien tersimpan di infrastruktur privat milik klinik Anda, bukan bercampur dengan klinik lain. Anda pemilik penuh datanya.",
+    q: "Kenapa Google Bisnis Profil dihitung bulanan?",
+    a: "Karena profilnya tidak diam. Jam buka berubah, kategori digeser Google, orang lain bisa mengusulkan perubahan di listing Anda, dan ulasan serta pertanyaan terus masuk. Pembenahan sekali jalan akan rusak sendiri dalam beberapa bulan, jadi kami tidak menjualnya begitu. Minimum 3 bulan, dan sisanya di halaman ini sekali bayar.",
   },
   {
-    q: "Berapa lama sampai bisa dipakai?",
-    a: "Audit selesai sekitar 3 hari. Setelah itu, asisten WhatsApp dasar biasanya siap dalam 1–2 minggu, tergantung banyaknya treatment dan alur booking klinik Anda.",
+    q: "Berapa lama sampai kelihatan hasilnya?",
+    a: "Auditnya selesai sekitar 3 hari. Perbaikan website dan profil biasanya 2–3 minggu. Jawaban yang ditarik langsung dari halaman bisa berubah dalam hitungan hari setelah halamannya berubah, sedangkan yang bergantung pada indeks biasanya hitungan minggu. Kami ukur ulang terhadap audit awal, bukan mengklaim.",
   },
   {
-    q: "Klinik saya masih kecil / baru buka. Cocok?",
-    a: "Justru di sinilah dampaknya paling terasa. Saat setiap lead berharga dan tim masih terbatas, satu booking yang tidak lolos itu signifikan. Otomasi membuat klinik kecil terasa responsif seperti yang besar.",
+    q: "Klinik saya masih kecil atau baru buka. Cocok?",
+    a: "Justru di situ selisihnya paling terasa, karena yang menentukan bukan besar kliniknya tapi seberapa jelas informasinya. Klinik kecil yang satu istilah dan konsisten di semua tempat sering lebih mudah dikutip daripada klinik besar yang informasinya berantakan. Auditnya akan menunjukkan posisi Anda apa adanya.",
   },
 ];
 
@@ -565,8 +572,8 @@ function KlinikFooter() {
             Gra<span className="text-accent-wash">fynt</span>
           </p>
           <p className="text-body-s mt-3 max-w-[34ch]">
-            Otomasi WhatsApp AI untuk bisnis Indonesia, dibangun dalam Bahasa,
-            untuk cara Anda melayani pelanggan.
+            GEO, AEO dan SEO untuk bisnis Indonesia. Supaya yang sudah mencari
+            menemukan Anda, bukan kompetitor.
           </p>
         </div>
         <p className="text-note font-mono uppercase">

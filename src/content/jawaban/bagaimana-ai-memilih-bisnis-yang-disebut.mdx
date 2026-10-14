@@ -1,0 +1,98 @@
+export const meta = {
+  question: "Bagaimana AI memilih bisnis yang disebut dalam jawabannya?",
+  title: "Bagaimana AI memilih bisnis yang disebut",
+  description:
+    "Asisten AI menarik halaman saat ditanya, lalu mengutip sumber yang paling jelas menjawab. Tiga hal yang menentukan bisnis mana yang akhirnya disebut.",
+  lead: "Asisten AI tidak menjawab dari hafalan. Saat ditanya, mereka mencari dan menarik halaman saat itu juga, lalu mengutip sumber yang paling jelas menjawab pertanyaannya dan paling didukung sumber lain. Jadi yang disebut adalah bisnis yang halamannya bisa ditarik, langsung menjawab, dan informasinya seragam di semua tempat.",
+  published: "2026-10-15",
+  updated: "2026-10-15",
+  faqs: [
+    {
+      question: "Apakah modelnya sudah hafal bisnis saya dari datanya?",
+      answer:
+        "Anggap tidak, dan jangan bertaruh di situ. Untuk pertanyaan dengan niat membeli, asisten AI mencari di web saat ditanya, karena data latihnya tidak mungkin tahu jam buka atau harga Anda sekarang. Yang bisa ditarik hari ini itulah yang menentukan apa yang dikatakan hari ini.",
+    },
+    {
+      question: "Apa bedanya dikutip dan ranking nomor satu?",
+      answer:
+        "Beda, dan selisih itu justru peluangnya. Ranking itu posisi di daftar. Dikutip itu jadi teks yang diambil mesin. Halaman bisa ranking bagus tapi tidak pernah dikutip, karena isinya menjelaskan bisnisnya, bukan menjawab pertanyaan yang ditanyakan.",
+    },
+    {
+      question: "Kenapa kompetitor yang lebih kecil justru disebut?",
+      answer:
+        "Biasanya karena halaman mereka menjawab pertanyaannya persis dalam satu paragraf yang berdiri sendiri, sementara halaman Anda tidak, atau karena nama, layanan, dan areanya ditulis sama di semua tempat sementara milik Anda berbeda-beda. Dua-duanya bukan soal ukuran.",
+    },
+    {
+      question: "Berapa lama perubahannya kelihatan?",
+      answer:
+        "Jawaban yang ditarik langsung dari halaman bisa berubah dalam hitungan hari setelah halamannya berubah, karena tidak ada yang perlu dilatih ulang. Jawaban yang bergantung pada indeks atau profil tersimpan lebih lambat, biasanya hitungan minggu.",
+    },
+  ],
+};
+
+## Ringkasnya
+
+- Asisten AI umumnya tidak menjawab dari hafalan. Mereka mencari, membaca hasilnya, lalu menulis jawaban dari situ. Karena itu ini masalah yang bisa dikerjakan, bukan misteri.
+- Tiga hal menentukan apakah Anda jadi sumber yang dikutip: halamannya bisa ditarik atau tidak, langsung menjawab atau tidak, dan apakah semua informasi tentang Anda saling cocok.
+- Langsung menjawab lebih menentukan daripada banyaknya tulisan. Satu halaman yang menjawab satu pertanyaan tuntas mengalahkan halaman panjang yang membahas enam topik sekadarnya.
+- Saling menguatkan lebih menentukan daripada sekadar mengklaim. Satu keterangan yang ditulis sama di website, Google Bisnis Profil, dan listing lain diperlakukan jauh berbeda dari keterangan yang cuma ada di satu tempat.
+- Tidak terlihat jarang karena tulisannya kurang. Biasanya karena informasinya tidak konsisten, atau halamannya tidak terbaca mesin.
+
+## Cara kerjanya
+
+Waktu orang minta rekomendasi supplier, klinik, atau tukang ke asisten AI, mesinnya tidak membuka daftar bisnis yang tersimpan. Mesin mengirim satu atau beberapa pencarian lewat API pencarian langsung, menerima sejumlah halaman, membacanya, lalu menyusun jawaban dari yang ditemukan. Sebagian halaman itu disebut namanya. Sebagian besar tidak.
+
+Tiga akibatnya perlu dipahami.
+
+**Halaman Anda sekarang itulah bahannya.** Bukan reputasi, bukan sudah berapa lama buka, bukan apa yang Anda tulis tahun lalu. Halaman yang bisa diambil saat ini adalah seluruh bukti yang dipakai mesin untuk mengatakan apa pun tentang Anda.
+
+**Yang dicari mesin bukan kata kunci Anda.** Mesin menulis ulang permintaan orang jadi pencarian versinya sendiri. Orang yang menulis "tempat servis layar HP yang murah dan cepat di dekat sini" bisa menghasilkan pencarian dengan istilah layanan yang belum pernah Anda tulis di website. Yang layak dikejar pertanyaan calon pembeli, bukan istilah yang Anda pakai untuk menyebut diri sendiri.
+
+**Hanya teks yang bisa dikutip yang dikutip.** Mesin butuh bagian yang bisa diringkas jadi satu kalimat tanpa risiko salah. Paragraf yang menjawab satu pertanyaan tuntas, berdiri sendiri, tanpa butuh konteks di sekitarnya, itu bentuk idealnya. Halaman yang baru sampai ke intinya di paragraf keempat tidak menyediakan apa pun untuk diambil.
+
+## Tiga hal yang menentukan
+
+**Bisa ditarik atau tidak.** Kalau mesin tidak bisa membaca halamannya, sisanya tidak ada artinya. Isi yang baru muncul setelah JavaScript jalan, isi yang tersembunyi di balik klik, dan halaman yang diblokir aturan robots semuanya tidak terlihat. Begitu juga halaman yang terlalu lambat. Ini membosankan dan ini yang pertama harus dicek.
+
+**Langsung menjawab.** Halamannya harus menjawab pertanyaannya, di awal, dengan kata-kata biasa. Bukan mendekati pertanyaannya. Bukan memberi latar belakang dulu. Satu halaman satu pertanyaan, dijawab di paragraf pertama, baru didukung penjelasan.
+
+**Saling menguatkan.** Ini yang paling sering salah tanpa disadari. Mesin yang menimbang mau menyebut Anda atau tidak sebenarnya sedang bertanya apakah buktinya saling cocok. Kalau website menyebut satu istilah, Google Bisnis Profil menyebut istilah lain, dan direktori menyebut istilah ketiga, tidak ada fakta konsisten yang bisa dinyatakan. Kompetitor yang ketiga tempatnya menulis hal yang sama dengan istilah yang sama lebih aman dijadikan sumber, jadi dia yang disebut.
+
+Karena itu konsistensi kata kunci bukan soal kerapian. Satu layanan, satu istilah, di semua tempat. Itu pekerjaan visibilitas paling murah yang tersedia untuk hampir semua bisnis.
+
+## Apa artinya dalam praktik
+
+| Yang biasanya dilakukan | Yang sebenarnya bikin dikutip |
+| --- | --- |
+| Menambah banyak halaman | Satu halaman per pertanyaan yang benar-benar ditanyakan |
+| Membuka dengan profil perusahaan | Menjawab di paragraf pertama, baru menjelaskan |
+| Memvariasikan istilah supaya tidak monoton | Satu istilah tetap per layanan, di semua tempat |
+| Menambah schema yang menjelaskan perusahaan | Schema yang menjelaskan teks yang terlihat di halaman |
+| Membuat website terlihat mewah | Membuatnya tetap terbaca walau JavaScript mati |
+| Mengejar kata kunci bervolume besar | Mengejar pertanyaan niat beli, sesempit apa pun |
+
+## Biayanya
+
+| Layanan | Harga | Waktu |
+| --- | --- | --- |
+| Audit visibilitas | Rp 710.000, gratis kalau ambil website | ±3 hari |
+| Analisis kompetitor | Rp 1.250.000, mencakup 3-5 kompetitor | ±1 minggu |
+| Optimasi Google Bisnis Profil | Rp 1.520.000 per bulan, minimum 3 bulan | ±1-2 minggu disiapkan |
+| Otomatisasi alur kerja | Dihitung per proyek, hanya sebagai tambahan | ±1-2 minggu |
+| Website, baru atau dirombak | mulai Rp 7.550.000 | ±2-3 minggu |
+
+Ada dua paket yang lebih murah dari kalau dibeli terpisah: website plus audit Rp 7.550.000, yang artinya auditnya gratis kalau sekalian ambil website, dan paket lengkap kecuali otomatisasi Rp 8.540.000 sekali bayar ditambah biaya profil Rp 1.520.000 per bulan. Yang didiskon hanya biaya sekali bayar; biaya bulanannya sama saja.
+
+Angka website itu mencakup perombakan atau company profile sampai sekitar lima halaman, dan website custom multi-halaman dihitung per proyek. Pekerjaan profil dihitung bulanan karena Google Bisnis Profil tidak pernah diam: jam buka berubah, kategori digeser Google, ulasan dan pertanyaan terus masuk. Pembenahan sekali jalan rusak sendiri dalam beberapa bulan, jadi tidak dijual begitu.
+
+Semuanya dimulai dari audit: apakah mesin pencari dan asisten AI menyebut bisnis Anda saat orang bertanya dengan niat membeli, apakah deskripsinya benar, dan bisnis mana yang justru disebut, lengkap dengan namanya. Ditambah tes keterbacaan dan konsistensi di website, Google Bisnis Profil, dan listing Anda di tempat lain. Sekitar tiga hari.
+
+## Kapan ini belum perlu dikejar
+
+Jangan kejar supaya dikutip untuk pertanyaan yang tidak mendahului pembelian. Disebut sebagai sumber untuk topik umum itu menyenangkan dan tidak menjual apa pun. Yang layak dimiliki pertanyaan yang ditanyakan orang di menit-menit terakhir sebelum memilih.
+
+Jangan mengoptimalkan untuk satu asisten saja. Cara menariknya beda-beda dan bisa berubah tanpa pemberitahuan. Menyetel halaman mengikuti kebiasaan satu platform menghasilkan halaman yang jalan di satu tempat dan tidak di tempat lain.
+
+Jangan menambahkan schema untuk teks yang tidak Anda tampilkan ke pembaca. Markup yang menjelaskan isi tersembunyi itu risiko penalti, bukan jalan pintas.
+
+Jangan mulai dari sini kalau di pencarian biasa pun Anda tidak ketemu. Fondasinya sama. Benahi sekali dan dua-duanya ikut naik; kejar istilah yang lebih baru saja dan Anda bayar dua kali.

@@ -1,21 +1,21 @@
-import { LADDER, digitSum, type Rung } from "@/lib/site";
+import { LADDER, type Rung } from "@/lib/site";
 import { CtaButton } from "@/components/cta-button";
 
 /**
- * THE LADDER, four rungs, read from LADDER in src/lib/site.ts. No name,
+ * THE LADDER, five rungs, read from LADDER in src/lib/site.ts. No name,
  * price or timeline is typed into this file.
  *
  * Shape:
  *   - each rung indents a little further than the one below it, so the
  *     climb is legible without a single decorative icon
  *   - hairline rules, no cards, no shadows
- *   - the free rung carries an accent left edge; the accent is a border,
- *     never the text colour
+ *   - the entry rung carries an accent left edge; the accent is a
+ *     border, never the text colour
  *   - the top rung is filled with --gf-deep, because it is the thing
  *     being built toward
  *   - price === null renders name and role only: no price, no button.
- *     That is the Catalyst rule and it is enforced by the data, not by
- *     a prop
+ *     Those rows are quoted after the audit, and that is enforced by
+ *     the data, not by a prop
  *
  * THE ONE SCROLL REVEAL ON THE SITE, and it is CSS-only:
  *
@@ -59,9 +59,10 @@ export function Ladder({
       <ol className={`gf-ladder ${className}`}>
         {rungs.map((rung, i) => {
           const isTop = i === rungs.length - 1;
-          // A priced rung with no digits in it is the free one. Derived
-          // from the data so no index or label is hardcoded here.
-          const isFree = rung.price !== null && digitSum(rung.price) === 0;
+          // The entry rung, which is where a client starts and where
+          // the one CTA belongs. It used to be derived from the price
+          // being digit-free, back when the audit was free.
+          const isEntry = i === 0;
 
           return (
             <li
@@ -72,7 +73,7 @@ export function Ladder({
                 isTop
                   ? "bg-deep text-on-dark rounded-[var(--gf-radius)] border-transparent"
                   : "",
-                isFree ? "border-l-2 border-l-[var(--gf-accent)] pl-4" : "",
+                isEntry ? "border-l-2 border-l-[var(--gf-accent)] pl-4" : "",
               ].join(" ")}
             >
               <div
@@ -138,7 +139,7 @@ export function Ladder({
                   </p>
                 ) : null}
 
-                {cta && isFree ? (
+                {cta && isEntry ? (
                   <div className="mt-5">
                     <CtaButton locale={locale} />
                   </div>
@@ -156,8 +157,8 @@ export function Ladder({
 const indent = ["", "sm:ml-6", "sm:ml-12", "sm:ml-18"] as const;
 
 const copy = {
-  en: { unpriced: "Named, not sold yet" },
-  id: { unpriced: "Belum dijual" },
+  en: { unpriced: "Quoted per project" },
+  id: { unpriced: "Dihitung per proyek" },
 } as const;
 
 const LADDER_CSS = `

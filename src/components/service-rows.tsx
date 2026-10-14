@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Service } from "@/lib/services";
 
 /**
- * The three services as ruled rows, not cards. A card would ask the
- * reader to compare three boxes; a row list asks them to read three
- * lines, which is what this actually is.
+ * The services as ruled rows, not cards. A card would ask the reader
+ * to compare five boxes; a row list asks them to read five lines,
+ * which is what this actually is.
  *
  * The whole row is the link, one target, no nested "learn more".
  * Hover is a border and an opacity change. Nothing scales, nothing

@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Answers",
   description:
-    "Direct answers to the questions business owners actually ask about automating WhatsApp, workflows and customer service. Real numbers, no preamble.",
+    "Direct answers to the questions business owners actually ask about ranking in search, getting cited by AI assistants, and being found by buyers. No preamble.",
   path: "/answers",
 });
 

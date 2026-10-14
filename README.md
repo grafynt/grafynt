@@ -2,7 +2,9 @@
 
 Next.js 16 (App Router, Turbopack) · TypeScript · Tailwind v4 · MDX · static everywhere · deployed on Vercel.
 
-This site has two jobs. It explains what Grafynt does to a human, and it is written to be the source an AI answer engine cites when someone asks who can automate their business. Machine retrieval first, human persuasion second. Retrieval wins ties.
+This site has two jobs. It explains what Grafynt does to a human, and it is written to be the source an AI answer engine cites when someone asks who can get their business found. Machine retrieval first, human persuasion second. Retrieval wins ties.
+
+Grafynt is a GEO/AEO/SEO agency working on **demand capture, not demand generation**: the buyer already wants what a client sells, and the only question is whether they find that client or a competitor. The targeting is deliberately narrow, down to the demographic, city and language a client actually sells into. The positioning string lives in `POSITIONING` in [`src/lib/site.ts`](src/lib/site.ts); the five services live in `LADDER` there and in [`src/lib/services.ts`](src/lib/services.ts). This site eats its own cooking, which is why it is also the worked example of the answer-page template below.
 
 ```bash
 npm install
@@ -16,7 +18,7 @@ npm run build   # must pass with zero errors before anything ships
 
 Answer pages are the retrieval surface. Every `/answers/*` and `/id/jawaban/*` page follows one template, and **the build enforces it**, see `validateAnswerMeta` in [`src/lib/answers.ts`](src/lib/answers.ts).
 
-**1. Write the file.** English goes in `src/content/answers/<slug>.mdx`, Bahasa in `src/content/jawaban/<slug>.mdx`. Copy `how-to-automate-whatsapp-customer-service.mdx` as the reference.
+**1. Write the file.** English goes in `src/content/answers/<slug>.mdx`, Bahasa in `src/content/jawaban/<slug>.mdx`. Copy `how-ai-answer-engines-choose-who-to-cite.mdx` as the reference.
 
 ```mdx
 export const meta = {
@@ -63,7 +65,9 @@ Explicit imports rather than a directory scan, deliberately: the build stays sta
 - **Do not write an `<h1>` or a "Common questions" section in the body.** The layout owns both. FAQs render from `meta.faqs`, so the visible text and the FAQPage schema physically cannot drift apart.
 - **Every number comes from [`src/lib/site.ts`](src/lib/site.ts).** No invented percentages, no "studies show", no competitor plan prices.
 - **The vertical is never named on a public route.** See below.
-- Automation *reduces the time operations take*. It never *replaces* people. In Bahasa: `meringankan`, never `menggantikan`.
+- Automation *reduces the time operations take*. It never *replaces* people. In Bahasa: `meringankan`, never `menggantikan`. It is also an add-on here, never the headline: we sell visibility first.
+- **One service, one phrase.** The discipline we sell is the discipline this repo keeps. A service is named identically in `LADDER`, in `SERVICES_EN`/`SERVICES_ID`, in the footer and in every answer page that mentions it. `BUNDLES` references rung names verbatim for exactly this reason. If you rename a service, grep for the old string before you commit.
+- **The audit is paid.** Rp 710.000, and free only when it comes with a website build. It used to be free outright, so treat any surviving "free audit" copy as a bug. Never write "no cost" without the website condition attached.
 
 ---
 
@@ -98,7 +102,13 @@ A vertical offer page is a **skin, not a fork**. No component is duplicated and 
 
 ## The rules the code enforces for you
 
-**Pricing reduces to root 8.** Every client-facing price must sum to 8 by full digit sum: `5.300.000 → 5+3 = 8`. `assertRootEight` runs at module load in [`src/lib/site.ts`](src/lib/site.ts), so a bad price fails the build rather than shipping. Internal costs are exempt and do not live in that file.
+**Pricing reduces to root 8.** Every client-facing price must sum to 8 by full digit sum: `7.550.000 → 7+5+5 = 17 → 8`. `assertRootEight` runs at module load in [`src/lib/site.ts`](src/lib/site.ts) over `LADDER` and over both bundle figures, so a bad price fails the build rather than shipping. Internal costs are exempt and do not live in that file.
+
+Two figures are deliberately **not** asserted, and cannot be: a bundle's struck-through `was` and the stated three-month total are arithmetic sums of prices that each already reduce to 8, and a sum of root-8 numbers is not itself root 8. Forcing one would mean printing a total that does not match what the parts add up to, which is a worse lie than breaking the pattern. If you add a bundle, check its `was` really is the sum of its parts and leave it out of the assertion.
+
+**Only one price recurs.** Google Business Profile optimisation is monthly with a three-month minimum, because a profile decays if nobody maintains it. Everything else is one-time. A bundle discounts the one-time work only; the monthly fee is never discounted, so a bundle's saving can never become a permanent markdown.
+
+**`price: null` means quoted per project**, not missing and not free. It renders as "Quoted per project". Never substitute a plausible-looking number for one that has not been set.
 
 **One CTA.** `CAL_URL` on public routes, `WHATSAPP.url` on `/v/*`. Both come from `src/lib/site.ts`. Never render two.
 

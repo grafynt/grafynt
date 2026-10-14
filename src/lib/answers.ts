@@ -59,26 +59,28 @@ const ANSWERS: Record<
   Record<string, () => Promise<AnswerModule>>
 > = {
   en: {
-    "how-to-automate-whatsapp-customer-service": () =>
-      import("@/content/answers/how-to-automate-whatsapp-customer-service.mdx"),
-    "cost-to-automate-order-processing": () =>
-      import("@/content/answers/cost-to-automate-order-processing.mdx"),
-    "hire-cs-rep-or-automate": () =>
-      import("@/content/answers/hire-cs-rep-or-automate.mdx"),
-    "can-ai-handle-whatsapp-bookings": () =>
-      import("@/content/answers/can-ai-handle-whatsapp-bookings.mdx"),
-    "n8n-vs-make-vs-zapier-small-business": () =>
-      import("@/content/answers/n8n-vs-make-vs-zapier-small-business.mdx"),
-    "whatsapp-business-api-vs-unofficial-gateway": () =>
-      import("@/content/answers/whatsapp-business-api-vs-unofficial-gateway.mdx"),
+    "why-chatgpt-doesnt-mention-your-business": () =>
+      import("@/content/answers/why-chatgpt-doesnt-mention-your-business.mdx"),
+    "how-ai-answer-engines-choose-who-to-cite": () =>
+      import("@/content/answers/how-ai-answer-engines-choose-who-to-cite.mdx"),
+    "geo-vs-aeo-vs-seo": () =>
+      import("@/content/answers/geo-vs-aeo-vs-seo.mdx"),
+    "google-business-profile-keyword-consistency": () =>
+      import(
+        "@/content/answers/google-business-profile-keyword-consistency.mdx"
+      ),
+    "demand-capture-vs-demand-generation": () =>
+      import("@/content/answers/demand-capture-vs-demand-generation.mdx"),
+    "how-to-audit-ai-search-visibility": () =>
+      import("@/content/answers/how-to-audit-ai-search-visibility.mdx"),
   },
   id: {
-    "cara-otomatisasi-whatsapp-customer-service": () =>
-      import("@/content/jawaban/cara-otomatisasi-whatsapp-customer-service.mdx"),
-    "biaya-bikin-chatbot-whatsapp": () =>
-      import("@/content/jawaban/biaya-bikin-chatbot-whatsapp.mdx"),
-    "rekrut-admin-atau-otomatisasi": () =>
-      import("@/content/jawaban/rekrut-admin-atau-otomatisasi.mdx"),
+    "kenapa-chatgpt-tidak-menyebut-bisnis-saya": () =>
+      import("@/content/jawaban/kenapa-chatgpt-tidak-menyebut-bisnis-saya.mdx"),
+    "bagaimana-ai-memilih-bisnis-yang-disebut": () =>
+      import("@/content/jawaban/bagaimana-ai-memilih-bisnis-yang-disebut.mdx"),
+    "optimasi-google-bisnis-profil": () =>
+      import("@/content/jawaban/optimasi-google-bisnis-profil.mdx"),
   },
 };
 

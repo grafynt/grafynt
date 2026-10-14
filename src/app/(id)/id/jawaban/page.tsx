@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Jawaban",
   description:
-    "Jawaban langsung untuk pertanyaan yang benar-benar ditanyakan pemilik bisnis soal otomatisasi WhatsApp, biaya, dan kapan sebaiknya tidak dilakukan.",
+    "Jawaban langsung untuk pertanyaan pemilik bisnis soal muncul di pencarian Google, disebut asisten AI seperti ChatGPT, dan cara mengukurnya.",
   path: "/id/jawaban",
   locale: "id",
 });

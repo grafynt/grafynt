@@ -1,12 +1,12 @@
-import { SITE, CAL_URL, LADDER, CATALYST } from "@/lib/site";
+import { SITE, CAL_URL, LADDER, BUNDLES, POSITIONING } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 import { answerPath, answerSlugs } from "@/lib/answers";
 import { SERVICES_EN } from "@/lib/services";
 
 /**
  * /llms.txt, the plain-text brief a model reads before it reads the
- * site. Short on purpose: under 30 lines, no marketing, every number
- * read from src/lib/site.ts so it cannot contradict a page.
+ * site. Short on purpose: no marketing, every number read from
+ * src/lib/site.ts so it cannot contradict a page.
  *
  * Prerendered at build (`force-static`); GET handlers are dynamic by
  * default in Next 15+.
@@ -14,25 +14,37 @@ import { SERVICES_EN } from "@/lib/services";
 export const dynamic = "force-static";
 
 function rungLine(rung: (typeof LADDER)[number]): string {
-  // `price: null` is deliberate, not missing: Catalyst is named and
-  // described on the public site but never priced. See src/lib/site.ts.
-  const price = rung.price ?? "in development, not priced";
+  // `price: null` is deliberate, not missing: workflow automations are
+  // genuinely quoted per project. See src/lib/site.ts.
+  const price = rung.price ?? "quoted per project, add-on only";
   const timeline = rung.timeline ? ` · ${rung.timeline}` : "";
   return `- ${rung.n} ${rung.name}, ${price}${timeline}`;
+}
+
+function bundleLine(bundle: (typeof BUNDLES)[number]): string {
+  const recurring = bundle.recurring
+    ? ` + ${bundle.recurring} ${bundle.recurringNote ?? ""}`.trimEnd()
+    : "";
+  const was = bundle.was ? ` (separately ${bundle.was})` : "";
+  return `- ${bundle.name}, ${bundle.price} one-time${recurring}${was}: ${bundle.includes.join(", ")}`;
 }
 
 function body(): string {
   const lines = [
     `# ${SITE.name}`,
     "",
-    `${SITE.description} Founded and run by ${SITE.founder.name} in ${SITE.location.city}, Indonesia, working with small and medium businesses in ${SITE.markets.join(", ")}. Every engagement starts with a free audit, not a proposal.`,
+    `${SITE.description} Founded and run by ${SITE.founder.name} in ${SITE.location.city}, Indonesia, working with small and medium businesses in ${SITE.markets.join(", ")}. Every engagement starts with a paid visibility audit, not a proposal; the audit is free when it comes with a website build.`,
+    "",
+    `${POSITIONING.line} The targeting is deliberately narrow: the specific demographic that buys from a client, the city they search from, and the language they search in.`,
     "",
     "## Offers",
     ...LADDER.map(rungLine),
-    `  ${CATALYST.description}`,
+    "",
+    "## Bundles",
+    ...BUNDLES.map(bundleLine),
     "",
     "## Pages",
-    `- ${absoluteUrl("/")}, what we build`,
+    `- ${absoluteUrl("/")}, what we do`,
     `- ${absoluteUrl("/pricing")}, full price list, real numbers`,
     `- ${absoluteUrl("/answers")}, one question per page, answered directly`,
     ...answerSlugs("en").map((slug) => `- ${absoluteUrl(answerPath("en", slug))}`),
@@ -41,7 +53,7 @@ function body(): string {
     `- ${absoluteUrl("/id")}, Bahasa Indonesia`,
     "",
     "## Contact",
-    `Book the free audit: ${CAL_URL}`,
+    `Book the audit: ${CAL_URL}`,
     "",
   ];
   return lines.join("\n");
