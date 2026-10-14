@@ -59,6 +59,10 @@ const ANSWERS: Record<
   Record<string, () => Promise<AnswerModule>>
 > = {
   en: {
+    "what-does-a-geo-agency-cost": () =>
+      import("@/content/answers/what-does-a-geo-agency-cost.mdx"),
+    "why-is-my-business-not-on-google-maps": () =>
+      import("@/content/answers/why-is-my-business-not-on-google-maps.mdx"),
     "why-chatgpt-doesnt-mention-your-business": () =>
       import("@/content/answers/why-chatgpt-doesnt-mention-your-business.mdx"),
     "how-ai-answer-engines-choose-who-to-cite": () =>
@@ -75,6 +79,12 @@ const ANSWERS: Record<
       import("@/content/answers/how-to-audit-ai-search-visibility.mdx"),
   },
   id: {
+    "biaya-jasa-geo-aeo-jakarta": () =>
+      import("@/content/jawaban/biaya-jasa-geo-aeo-jakarta.mdx"),
+    "kenapa-bisnis-saya-tidak-muncul-di-google-maps": () =>
+      import(
+        "@/content/jawaban/kenapa-bisnis-saya-tidak-muncul-di-google-maps.mdx"
+      ),
     "kenapa-chatgpt-tidak-menyebut-bisnis-saya": () =>
       import("@/content/jawaban/kenapa-chatgpt-tidak-menyebut-bisnis-saya.mdx"),
     "bagaimana-ai-memilih-bisnis-yang-disebut": () =>

@@ -397,6 +397,14 @@ export const HREFLANG_PAIRS: ReadonlyArray<{ en: string; id: string }> = [
   // English-market vocabulary with no Indonesian query worth chasing
   // yet, and the audit how-to would duplicate the Bahasa service page.
   {
+    en: "/answers/what-does-a-geo-agency-cost",
+    id: "/id/jawaban/biaya-jasa-geo-aeo-jakarta",
+  },
+  {
+    en: "/answers/why-is-my-business-not-on-google-maps",
+    id: "/id/jawaban/kenapa-bisnis-saya-tidak-muncul-di-google-maps",
+  },
+  {
     en: "/answers/why-chatgpt-doesnt-mention-your-business",
     id: "/id/jawaban/kenapa-chatgpt-tidak-menyebut-bisnis-saya",
   },
