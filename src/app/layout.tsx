@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Outfit, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/json-ld";
 import { SITE } from "@/lib/site";
 import { graph, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             by @id. */}
         <JsonLd data={graph(organizationSchema(), websiteSchema())} />
         {children}
+        <Analytics />
       </body>
     </html>
   );
